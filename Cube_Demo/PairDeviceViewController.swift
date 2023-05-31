@@ -33,7 +33,7 @@ class PairDeviceViewController: UIParentViewController, UITableViewDelegate, UIT
     
     var delegate : ProtoDeviceConnected? = nil
     var delegate2 : ProtoBBSConnected? = nil
-    
+    var helloData = Data()
     
     var writeIterationsComplete = 0
     var connectionIterationsComplete = 0
@@ -53,7 +53,7 @@ class PairDeviceViewController: UIParentViewController, UITableViewDelegate, UIT
     var isReRecordFlow = false
     var recordingID : Int?
     var recordingName : String?
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -223,7 +223,7 @@ extension PairDeviceViewController: CBCentralManagerDelegate {
                 self.data.removeAll(keepingCapacity: false)
                 
                 // Make sure we get the discovery callbacks
-                peripheral.delegate = self
+                peripheral.delegate = vc
                 
                 // Search only for services that match our UUID
                 peripheral.discoverServices(nil)
@@ -237,7 +237,9 @@ extension PairDeviceViewController: CBCentralManagerDelegate {
          */
         func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
             let alertController = UIAlertController(title: "Disconnected", message: "Device Disconnected", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "ok", style: .default))
+            alertController.addAction(UIAlertAction(title: "ok", style: .default){_ in
+               // self.navigationController?.popToRootViewController(animated: true)
+            })
             self.present(alertController, animated: false)
             print("Perhiperal Disconnected")
             discoveredPeripheral = nil
@@ -251,77 +253,6 @@ extension PairDeviceViewController: CBCentralManagerDelegate {
         }
         
 }
-    
-extension PairDeviceViewController: CBPeripheralDelegate {
-        // implementations of the CBPeripheralDelegate methods
-        
-        /*
-         *  The peripheral letting us know when services have been invalidated.
-         */
-        func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
-            
-            for service in invalidatedServices where service.uuid == TransferService.serviceUUID {
-                print("Transfer service is invalidated - rediscover services")
-                peripheral.discoverServices([TransferService.serviceUUID])
-            }
-        }
-        
-        /*
-         *  The Transfer Service was discovered
-         */
-        func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-            if let error = error {
-                print("Error discovering services: %s", error.localizedDescription)
-                cleanup()
-                return
-            }
-            
-            // Discover the characteristic we want...
-            
-            // Loop through the newly filled peripheral.services array, just in case there's more than one.
-            guard let peripheralServices = peripheral.services else { return }
-            for service in peripheralServices {
-                peripheral.discoverCharacteristics([TransferService.characteristicUUID], for: service)
-            }
-        }
-        
-        /*
-         *  The Transfer characteristic was discovered.
-         *  Once this has been found, we want to subscribe to it, which lets the peripheral know we want the data it contains
-         */
-        func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-            // Deal with errors (if any).
-            if let error = error {
-                print("Error discovering characteristics: %s", error.localizedDescription)
-                cleanup()
-                return
-            }
-            
-            // Again, we loop through the array, just in case and check if it's the right one
-            guard let serviceCharacteristics = service.characteristics else { return }
-            for characteristic in serviceCharacteristics where characteristic.uuid == TransferService.characteristicUUID {
-                // If it is, subscribe to it
-                transferCharacteristic = characteristic
-                peripheral.setNotifyValue(true, for: characteristic)
-            }
-            
-            // Once this is complete, we just need to wait for the data to come in.
-        }
-        
-        /*
-         *   This callback lets us know more data has arrived via notification on the characteristic
-         */
-        func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-            // Deal with errors (if any)
-            if characteristic.uuid.uuidString == "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"{
-                guard let value = characteristic.value else {return}
-                print(Date().timeIntervalSince(previousTimeInterval))
-                previousTimeInterval = Date()
-                self.data.append(value)
-            }
-        }
-}
-    
 extension PairDeviceViewController : ConnectBTDeviceHandle {
     func handleConnectBTDevice(index: Int) {
         centralManager.connect(self.peripherals[index])

@@ -37,6 +37,7 @@
                                         </constraints>
                                         <state key="normal" image="ic_back"/>
                                         <connections>
+                                            <action selector="btnBackTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UJB-Ys-zFr"/>
                                             <action selector="btnBackTapped:" destination="zgd-Ja-XbK" eventType="touchUpInside" id="f7s-i4-VRt"/>
                                         </connections>
                                     </button>
@@ -126,9 +127,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="126"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ecg_Background" translatesAutoresizingMaskIntoConstraints="NO" id="u23-Ny-TBc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="126"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="160"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="126" id="6Z9-fb-EMg"/>
+                                                            <constraint firstAttribute="height" constant="160" id="6Z9-fb-EMg"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
@@ -151,9 +152,9 @@
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ecg_Background" translatesAutoresizingMaskIntoConstraints="NO" id="0Ee-U4-tQR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="138"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="150"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="138" id="bzR-Fy-KrH"/>
+                                                            <constraint firstAttribute="height" constant="150" id="bzR-Fy-KrH"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
@@ -200,6 +201,9 @@
                                                         <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnNoFilterTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="taX-ux-Cgg"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJk-AE-WiZ">
                                                 <rect key="frame" x="98.666666666666686" y="0.0" width="77" height="40"/>
@@ -215,6 +219,10 @@
                                                         <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnNoFilterTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ln-13-c8r"/>
+                                                    <action selector="filterHeartTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8TQ-HA-uSK"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiT-oS-lZ6">
                                                 <rect key="frame" x="185.66666666666666" y="0.0" width="76.666666666666657" height="40"/>
@@ -230,6 +238,9 @@
                                                         <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="filterLungsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aNl-EC-Hiq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNp-gU-HLN">
                                                 <rect key="frame" x="272.33333333333331" y="0.0" width="76.666666666666686" height="40"/>
@@ -245,6 +256,9 @@
                                                         <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="filterBowelTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZxX-7q-CtH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -280,20 +294,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="6NT-u3-COs">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6NT-u3-COs">
                                 <rect key="frame" x="16" y="610" width="361" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  40 Hz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X91-D6-Ycm">
-                                        <rect key="frame" x="0.0" y="0.0" width="51" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  0 Hz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X91-D6-Ycm">
+                                        <rect key="frame" x="0.0" y="0.0" width="41" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="BbD-jh-AxF">
-                                        <rect key="frame" x="77.000000000000014" y="0.0" width="200.33333333333337" height="41"/>
-                                    </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 Hz  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11T-Bi-cvw">
-                                        <rect key="frame" x="303.33333333333331" y="0.0" width="57.666666666666686" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lq-Ci-OaA" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
+                                        <rect key="frame" x="50.999999999999986" y="0.0" width="229.66666666666663" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideLabels" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="handleColor">
+                                                <color key="value" systemColor="systemGray5Color"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="handleBorderColor">
+                                                <color key="value" systemColor="systemGray6Color"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="handleBorderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="rangeSliderTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="5Eh-TX-taR"/>
+                                        </connections>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000 Hz  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11T-Bi-cvw">
+                                        <rect key="frame" x="290.66666666666669" y="0.0" width="70.333333333333314" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -319,6 +352,7 @@
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dKW-29-Qwy">
                                         <rect key="frame" x="70.666666666666671" y="0.0" width="219.66666666666663" height="36"/>
+                                        <color key="thumbTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AR-QG-KDX">
                                         <rect key="frame" x="316.33333333333331" y="0.0" width="44.666666666666686" height="35"/>
@@ -336,6 +370,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPc-3j-F1w">
+                                <rect key="frame" x="100" y="797.66666666666663" width="193" height="34.333333333333371"/>
+                                <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34.329999999999998" id="W91-Ip-l17"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Live Graph"/>
+                                <connections>
+                                    <action selector="btnShareFileTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lkE-Jf-ykr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -348,6 +394,7 @@
                             <constraint firstItem="gG3-h7-ipx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ph8-K2-aM9"/>
                             <constraint firstItem="sBI-t0-Vht" firstAttribute="top" secondItem="gG3-h7-ipx" secondAttribute="bottom" constant="10" id="RC4-zV-P7f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gG3-h7-ipx" secondAttribute="trailing" constant="16" id="RF4-nC-4qp"/>
+                            <constraint firstItem="zPc-3j-F1w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="SsK-by-unv"/>
                             <constraint firstItem="mLx-MW-vbH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="clm-2z-CPu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pTw-1T-MTP" secondAttribute="trailing" constant="16" id="dMu-SQ-ojt"/>
                             <constraint firstItem="gG3-h7-ipx" firstAttribute="top" secondItem="mLx-MW-vbH" secondAttribute="bottom" constant="15" id="fXd-Ek-gFG"/>
@@ -357,10 +404,21 @@
                             <constraint firstItem="mLx-MW-vbH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qIc-PO-16F"/>
                             <constraint firstItem="pTw-1T-MTP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="s7s-qD-nfB"/>
                             <constraint firstItem="gtF-3U-x27" firstAttribute="top" secondItem="pTw-1T-MTP" secondAttribute="bottom" constant="10" id="uIB-Ee-uv8"/>
+                            <constraint firstAttribute="bottom" secondItem="zPc-3j-F1w" secondAttribute="bottom" constant="20" id="xqc-w6-MfS"/>
                             <constraint firstItem="sBI-t0-Vht" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="xqp-gg-HbC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zPc-3j-F1w" secondAttribute="trailing" constant="100" id="zjM-ut-Zgb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O4N-21-Cca"/>
+                    <connections>
+                        <outlet property="graphView" destination="u23-Ny-TBc" id="8u4-q2-7PU"/>
+                        <outlet property="imgEcgGraph" destination="u23-Ny-TBc" id="Kkz-2D-PI0"/>
+                        <outlet property="imgWaveForm" destination="0Ee-U4-tQR" id="Jpq-tv-vx2"/>
+                        <outlet property="lblHighFrequency" destination="11T-Bi-cvw" id="bvm-Xe-uUw"/>
+                        <outlet property="lblLowFrequency" destination="X91-D6-Ycm" id="pOe-Vg-aoI"/>
+                        <outlet property="rangeSlider" destination="9lq-Ci-OaA" id="oNO-ut-kyJ"/>
+                        <outlet property="waveFormView" destination="MQ3-ju-f5O" id="qNs-xg-IYv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -997,6 +1055,11 @@ from the list to connect</string>
             <point key="canvasLocation" x="2183.969465648855" y="84.507042253521135"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="9lq-Ci-OaA">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
+        </designable>
+    </designables>
     <resources>
         <image name="button_retake" width="24" height="24"/>
         <image name="button_share" width="24" height="24"/>
@@ -1038,6 +1101,9 @@ from the list to connect</string>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

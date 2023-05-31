@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,14 @@
 		5D9DC0402A135237001A464E /* HomeRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DC03F2A135237001A464E /* HomeRecordViewController.swift */; };
 		5D9DC0422A135718001A464E /* UIParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DC0412A135718001A464E /* UIParentViewController.swift */; };
 		5D9DC0442A135DD1001A464E /* PairDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DC0432A135DD0001A464E /* PairDeviceViewController.swift */; };
+		5DC1E6D52A2093AE00F07ADE /* ADPCMDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC1E6D42A2093AE00F07ADE /* ADPCMDecode.swift */; };
+		5DD1A1E82A25D94800479E90 /* correctRecoedingThreshold in Resources */ = {isa = PBXBuildFile; fileRef = 5DD1A1E72A25D94800479E90 /* correctRecoedingThreshold */; };
+		5DD1A1EC2A25F10200479E90 /* 0DF4A540-E331-43B8-85C0-76BCC8290275 in Resources */ = {isa = PBXBuildFile; fileRef = 5DD1A1EB2A25F10200479E90 /* 0DF4A540-E331-43B8-85C0-76BCC8290275 */; };
+		5DD1A1EE2A25F38800479E90 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD1A1ED2A25F38800479E90 /* DataParser.swift */; };
+		5DE6110E2A2476ED00F2B137 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6110D2A2476ED00F2B137 /* RingBuffer.swift */; };
+		5DE611102A2477D300F2B137 /* ToneGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6110F2A2477D300F2B137 /* ToneGenerator.swift */; };
 		5DF286A92A13606900466D7B /* BluetoothPairTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF286A82A13606900466D7B /* BluetoothPairTableViewCell.swift */; };
+		6CF10220F6FD3F0A2C918A18 /* Pods_Cube_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADCD9D5B46A6DE3009429D83 /* Pods_Cube_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3EB9F6DCD4746BA5C00BDF12 /* Pods-Cube_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cube_Demo.debug.xcconfig"; path = "Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		5D47C4122A13904F00F85614 /* AuscultationProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuscultationProcessViewController.swift; sourceTree = "<group>"; };
 		5D47C41A2A13AB4E00F85614 /* TransferServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferServices.swift; sourceTree = "<group>"; };
 		5D6E47912A12515500BEB5A5 /* Cube_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cube_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +66,15 @@
 		5D9DC03F2A135237001A464E /* HomeRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRecordViewController.swift; sourceTree = "<group>"; };
 		5D9DC0412A135718001A464E /* UIParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIParentViewController.swift; sourceTree = "<group>"; };
 		5D9DC0432A135DD0001A464E /* PairDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairDeviceViewController.swift; sourceTree = "<group>"; };
+		5DC1E6D42A2093AE00F07ADE /* ADPCMDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADPCMDecode.swift; sourceTree = "<group>"; };
+		5DD1A1E72A25D94800479E90 /* correctRecoedingThreshold */ = {isa = PBXFileReference; lastKnownFileType = file; path = correctRecoedingThreshold; sourceTree = "<group>"; };
+		5DD1A1EB2A25F10200479E90 /* 0DF4A540-E331-43B8-85C0-76BCC8290275 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "0DF4A540-E331-43B8-85C0-76BCC8290275"; sourceTree = "<group>"; };
+		5DD1A1ED2A25F38800479E90 /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		5DE6110D2A2476ED00F2B137 /* RingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
+		5DE6110F2A2477D300F2B137 /* ToneGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneGenerator.swift; sourceTree = "<group>"; };
 		5DF286A82A13606900466D7B /* BluetoothPairTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothPairTableViewCell.swift; sourceTree = "<group>"; };
+		730B9C5A13F997F2E8653FDC /* Pods-Cube_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cube_Demo.release.xcconfig"; path = "Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo.release.xcconfig"; sourceTree = "<group>"; };
+		ADCD9D5B46A6DE3009429D83 /* Pods_Cube_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cube_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF10220F6FD3F0A2C918A18 /* Pods_Cube_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,11 +103,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57801B38EE4729E9BCAEFC53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADCD9D5B46A6DE3009429D83 /* Pods_Cube_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5D6E47882A12515500BEB5A5 = {
 			isa = PBXGroup;
 			children = (
 				5D6E47932A12515500BEB5A5 /* Cube_Demo */,
 				5D6E47922A12515500BEB5A5 /* Products */,
+				849809D421E0A8D3A2E79E85 /* Pods */,
+				57801B38EE4729E9BCAEFC53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,10 +140,16 @@
 				5D9DC0412A135718001A464E /* UIParentViewController.swift */,
 				5D9DC03F2A135237001A464E /* HomeRecordViewController.swift */,
 				5DF286A82A13606900466D7B /* BluetoothPairTableViewCell.swift */,
+				5DC1E6D42A2093AE00F07ADE /* ADPCMDecode.swift */,
 				5D47C41A2A13AB4E00F85614 /* TransferServices.swift */,
 				5D47C4122A13904F00F85614 /* AuscultationProcessViewController.swift */,
 				5D9DC0432A135DD0001A464E /* PairDeviceViewController.swift */,
 				5D9DC03D2A135232001A464E /* OrgLoginViewController.swift */,
+				5DD1A1E72A25D94800479E90 /* correctRecoedingThreshold */,
+				5DD1A1EB2A25F10200479E90 /* 0DF4A540-E331-43B8-85C0-76BCC8290275 */,
+				5DD1A1ED2A25F38800479E90 /* DataParser.swift */,
+				5DE6110D2A2476ED00F2B137 /* RingBuffer.swift */,
+				5DE6110F2A2477D300F2B137 /* ToneGenerator.swift */,
 				5D6E47982A12515500BEB5A5 /* ViewController.swift */,
 				5D6E479A2A12515500BEB5A5 /* Main.storyboard */,
 				5D6E479D2A12515A00BEB5A5 /* Assets.xcassets */,
@@ -126,6 +159,15 @@
 			path = Cube_Demo;
 			sourceTree = "<group>";
 		};
+		849809D421E0A8D3A2E79E85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3EB9F6DCD4746BA5C00BDF12 /* Pods-Cube_Demo.debug.xcconfig */,
+				730B9C5A13F997F2E8653FDC /* Pods-Cube_Demo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D6E47BB2A12515A00BEB5A5 /* Build configuration list for PBXNativeTarget "Cube_Demo" */;
 			buildPhases = (
+				09BE5DF08171771452D52F22 /* [CP] Check Pods Manifest.lock */,
 				5D6E478D2A12515500BEB5A5 /* Sources */,
 				5D6E478E2A12515500BEB5A5 /* Frameworks */,
 				5D6E478F2A12515500BEB5A5 /* Resources */,
+				AE3E9702EEAF0C194BD6E0F6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,7 +250,7 @@
 				};
 			};
 			buildConfigurationList = 5D6E478C2A12515500BEB5A5 /* Build configuration list for PBXProject "Cube_Demo" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -230,6 +274,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD1A1E82A25D94800479E90 /* correctRecoedingThreshold in Resources */,
+				5DD1A1EC2A25F10200479E90 /* 0DF4A540-E331-43B8-85C0-76BCC8290275 in Resources */,
 				5D6E47A12A12515A00BEB5A5 /* LaunchScreen.storyboard in Resources */,
 				5D6E479E2A12515A00BEB5A5 /* Assets.xcassets in Resources */,
 				5D6E479C2A12515500BEB5A5 /* Main.storyboard in Resources */,
@@ -252,6 +298,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09BE5DF08171771452D52F22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cube_Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE3E9702EEAF0C194BD6E0F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5D6E478D2A12515500BEB5A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -260,12 +348,16 @@
 				5D6E47992A12515500BEB5A5 /* ViewController.swift in Sources */,
 				5D6E47952A12515500BEB5A5 /* AppDelegate.swift in Sources */,
 				5D9DC03E2A135232001A464E /* OrgLoginViewController.swift in Sources */,
+				5DE6110E2A2476ED00F2B137 /* RingBuffer.swift in Sources */,
 				5D6E47972A12515500BEB5A5 /* SceneDelegate.swift in Sources */,
+				5DE611102A2477D300F2B137 /* ToneGenerator.swift in Sources */,
 				5D47C4132A13904F00F85614 /* AuscultationProcessViewController.swift in Sources */,
 				5D47C41B2A13AB4E00F85614 /* TransferServices.swift in Sources */,
 				5D9DC0442A135DD1001A464E /* PairDeviceViewController.swift in Sources */,
 				5D9DC0422A135718001A464E /* UIParentViewController.swift in Sources */,
 				5D9DC0402A135237001A464E /* HomeRecordViewController.swift in Sources */,
+				5DD1A1EE2A25F38800479E90 /* DataParser.swift in Sources */,
+				5DC1E6D52A2093AE00F07ADE /* ADPCMDecode.swift in Sources */,
 				5DF286A92A13606900466D7B /* BluetoothPairTableViewCell.swift in Sources */,
 				5D9DC03C2A13522A001A464E /* SplashViewController.swift in Sources */,
 			);
@@ -436,6 +528,7 @@
 		};
 		5D6E47BC2A12515A00BEB5A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EB9F6DCD4746BA5C00BDF12 /* Pods-Cube_Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -465,6 +558,7 @@
 		};
 		5D6E47BD2A12515A00BEB5A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 730B9C5A13F997F2E8653FDC /* Pods-Cube_Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

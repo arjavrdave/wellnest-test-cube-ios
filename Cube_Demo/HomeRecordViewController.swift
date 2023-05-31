@@ -46,7 +46,9 @@ class HomeRecordViewController: UIParentViewController, UITextFieldDelegate {
         let alertController = UIAlertController(title:  "", message: "Please pair your device to start Auscultation reading.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
         alertController.addAction(UIAlertAction(title: "Pair Now", style: .default))
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PairDeviceViewController") as! PairDeviceViewController
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PairDeviceViewController") as! PairDeviceViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+
 
         self.navigationController?.pushViewController(vc, animated: true)
         self.present(alertController, animated: false)

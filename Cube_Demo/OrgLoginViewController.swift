@@ -41,7 +41,7 @@ class OrgLoginViewController: UIParentViewController, UITextFieldDelegate {
         // self.constButtonBottom = self.constNextBottomSpace
     }
     @IBAction func btnCancelTapped(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

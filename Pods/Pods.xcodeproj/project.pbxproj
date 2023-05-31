@@ -1,0 +1,833 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01C14B76205EFB8A22BA213D2CA15378 /* RangeSeekSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CAC784D0EBB92A596C58759EBD36FEE /* RangeSeekSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135B29DE7EAB503C626B0B1A57A6A9B1 /* DSWaveformImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BF74B41988FC47AF931BBD5AE6E66A /* DSWaveformImage-dummy.m */; };
+		45068A6DE28EC7E00F2740C52FDCE66F /* WaveformImageDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE31DA13BD175D982A4E9D2A87583779 /* WaveformImageDrawer.swift */; };
+		49E21F3D852BB38CFC48FA88555B20D9 /* RangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61F815127B3B9271341D1CE27B18AFB /* RangeSeekSlider.swift */; };
+		4CF53CA025EC0D790A7CF16C053B8C3B /* DSWaveformImage.h in Headers */ = {isa = PBXBuildFile; fileRef = C7559F8D1DBB82FD9E0F0ADF2E20C958 /* DSWaveformImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		506B74703291A5027F877CB7F422C7C4 /* WaveformImageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D67CC671F020ECC9D0AA1331C261ED /* WaveformImageTypes.swift */; };
+		64FA8813F43B7D1DCB20498628F99FA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C83A3103575BC8AC91CAE7E83A5188 /* Foundation.framework */; };
+		6A3A4303B4F573E5A9DCF39CA0906999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6DBC5FFC63E218AE5782901E821B15 /* UIKit.framework */; };
+		7A9BF4B59C5B1A26A89A0796C7CD2EFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C83A3103575BC8AC91CAE7E83A5188 /* Foundation.framework */; };
+		853C8E732FC9F53B04221DF97F180A94 /* RangeSeekSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34389306BEF536452FE65838D87512CD /* RangeSeekSlider-dummy.m */; };
+		8A3943FD1367A3F7F2EE411ADA074372 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2856C8583466F0EB65C914F48DEFB859 /* ColorExtensions.swift */; };
+		92075985994A846C103B5DBEF9009A91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C83A3103575BC8AC91CAE7E83A5188 /* Foundation.framework */; };
+		B871921B9733E269A8280FE3884FF98A /* Pods-Cube_Demo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3BD95C45862F8598D7FDAC6D4D68CD /* Pods-Cube_Demo-dummy.m */; };
+		C069C7ED32174E0C0E790F7DEDB05604 /* WaveformImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7BE0A6F8D3564C69171F3B09BBD9F /* WaveformImageView.swift */; };
+		C6B36F97817B7C0C82F8726E7E5FCE7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711C12397B6800349C78107366CDD683 /* CoreGraphics.framework */; };
+		CCBC18164E12B58B5E3349D0852AEB43 /* DSWaveformImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A49C63853098B0274F512EF5928DD733 /* DSWaveformImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA9D3599917F2D0D1E62469014BF021A /* WaveformAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0732CCE086D7713550AA4ED34521688F /* WaveformAnalyzer.swift */; };
+		DF965BDED7E88B3C59B16489773E6E2C /* TapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346D88E351E0AC0609A4FDC0F2582F1D /* TapticEngine.swift */; };
+		E3FF3B22E366CCB7EF2709C5B2E3C9FA /* Pods-Cube_Demo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B92A6491202ECC6291B6634A8700E62E /* Pods-Cube_Demo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED74317B4B497C4F0ED871F726304C73 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 904F128AC2191ED309D8DC8246EEA00C /* AVFoundation.framework */; };
+		F483C2520A10EF17FD63D4607F61FEB4 /* RangeSeekSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818823E14AF75F173184FE524ECE53E3 /* RangeSeekSliderDelegate.swift */; };
+		FD4C48FBE48B2F6F06D8E9D82D208B93 /* TempiFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B3A971B006B5E8DBCDE3A841859B9 /* TempiFFT.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A110FDA68F8375BDA9A2D2CFE4CD8356 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 991DA947EB2FE265870457A9D90FE398;
+			remoteInfo = DSWaveformImage;
+		};
+		AD95881D5024387AF35CD1ADDAEFD16B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AFB864B337D1F74C1D79F4FC8F6C67F;
+			remoteInfo = RangeSeekSlider;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0732CCE086D7713550AA4ED34521688F /* WaveformAnalyzer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaveformAnalyzer.swift; path = DSWaveformImage/DSWaveformImage/WaveformAnalyzer.swift; sourceTree = "<group>"; };
+		12A1849A3FF8A6000C53979D50CE4579 /* Pods-Cube_Demo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Cube_Demo.modulemap"; sourceTree = "<group>"; };
+		2856C8583466F0EB65C914F48DEFB859 /* ColorExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorExtensions.swift; path = DSWaveformImage/DSWaveformImage/ColorExtensions.swift; sourceTree = "<group>"; };
+		2DFE1D3C3A2C273CAF9DEBB2E146E359 /* RangeSeekSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RangeSeekSlider-prefix.pch"; sourceTree = "<group>"; };
+		2E3BD95C45862F8598D7FDAC6D4D68CD /* Pods-Cube_Demo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cube_Demo-dummy.m"; sourceTree = "<group>"; };
+		34389306BEF536452FE65838D87512CD /* RangeSeekSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RangeSeekSlider-dummy.m"; sourceTree = "<group>"; };
+		346D88E351E0AC0609A4FDC0F2582F1D /* TapticEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TapticEngine.swift; path = Sources/TapticEngine.swift; sourceTree = "<group>"; };
+		34B8C540AB01D9F4F1547D94300B0310 /* RangeSeekSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RangeSeekSlider.release.xcconfig; sourceTree = "<group>"; };
+		49AD7B137062E9E5AD8BF174C8F1FCF1 /* RangeSeekSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RangeSeekSlider-Info.plist"; sourceTree = "<group>"; };
+		55D67CC671F020ECC9D0AA1331C261ED /* WaveformImageTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaveformImageTypes.swift; path = DSWaveformImage/DSWaveformImage/WaveformImageTypes.swift; sourceTree = "<group>"; };
+		61CD39FA63ADF58E983DA4590BB63064 /* RangeSeekSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RangeSeekSlider.modulemap; sourceTree = "<group>"; };
+		663177F300EF0433B06313FDA16FB580 /* DSWaveformImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DSWaveformImage.debug.xcconfig; sourceTree = "<group>"; };
+		711C12397B6800349C78107366CDD683 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		7440068378FD19977284D9766DDCE838 /* Pods-Cube_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cube_Demo.release.xcconfig"; sourceTree = "<group>"; };
+		77E1C5A548318B49AACB8561893C958B /* Pods-Cube_Demo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Cube_Demo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		789C9AF250A5571B2732FA950E355041 /* Pods-Cube_Demo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cube_Demo-frameworks.sh"; sourceTree = "<group>"; };
+		809DAC76A07D68EAE3E6706DE08BC9D9 /* Pods-Cube_Demo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cube_Demo-Info.plist"; sourceTree = "<group>"; };
+		818823E14AF75F173184FE524ECE53E3 /* RangeSeekSliderDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSeekSliderDelegate.swift; path = Sources/RangeSeekSliderDelegate.swift; sourceTree = "<group>"; };
+		81BF74B41988FC47AF931BBD5AE6E66A /* DSWaveformImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DSWaveformImage-dummy.m"; sourceTree = "<group>"; };
+		8AF944C3B1D894BF7DB84F6D9CFC9614 /* RangeSeekSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RangeSeekSlider.debug.xcconfig; sourceTree = "<group>"; };
+		8BCB797B1560868FB1537DA086099067 /* DSWaveformImage-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DSWaveformImage-Info.plist"; sourceTree = "<group>"; };
+		8CAC784D0EBB92A596C58759EBD36FEE /* RangeSeekSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RangeSeekSlider-umbrella.h"; sourceTree = "<group>"; };
+		904F128AC2191ED309D8DC8246EEA00C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		95846B71359ACF791F1E90123E1F7FA2 /* DSWaveformImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DSWaveformImage.modulemap; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A49C63853098B0274F512EF5928DD733 /* DSWaveformImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DSWaveformImage-umbrella.h"; sourceTree = "<group>"; };
+		ACC7BE0A6F8D3564C69171F3B09BBD9F /* WaveformImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaveformImageView.swift; path = DSWaveformImage/DSWaveformImage/WaveformImageView.swift; sourceTree = "<group>"; };
+		B92A6491202ECC6291B6634A8700E62E /* Pods-Cube_Demo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cube_Demo-umbrella.h"; sourceTree = "<group>"; };
+		BB931DA9A8BE6E1671A88C5FCF2F0168 /* DSWaveformImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DSWaveformImage-prefix.pch"; sourceTree = "<group>"; };
+		BD3D018D2F593D71F7AFD83C7B9A0A46 /* Pods-Cube_Demo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cube_Demo-acknowledgements.plist"; sourceTree = "<group>"; };
+		C027A7405E856E45431E9E1E7913015F /* RangeSeekSlider */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RangeSeekSlider; path = RangeSeekSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4A4E2A39481CA29FAA67076012E946C /* DSWaveformImage */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DSWaveformImage; path = DSWaveformImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61F815127B3B9271341D1CE27B18AFB /* RangeSeekSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RangeSeekSlider.swift; path = Sources/RangeSeekSlider.swift; sourceTree = "<group>"; };
+		C6E5E51CEAA3376E84B96CF3D48CB5B9 /* DSWaveformImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DSWaveformImage.release.xcconfig; sourceTree = "<group>"; };
+		C7559F8D1DBB82FD9E0F0ADF2E20C958 /* DSWaveformImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DSWaveformImage.h; path = DSWaveformImage/DSWaveformImage.h; sourceTree = "<group>"; };
+		CA9AA63AECA916A4F7B4438C5C0852A4 /* Pods-Cube_Demo */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Cube_Demo"; path = Pods_Cube_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC1ACF9663264160727914F02C355A26 /* Pods-Cube_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cube_Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		E4C83A3103575BC8AC91CAE7E83A5188 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		EE6DBC5FFC63E218AE5782901E821B15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		FA1B3A971B006B5E8DBCDE3A841859B9 /* TempiFFT.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TempiFFT.swift; path = DSWaveformImage/DSWaveformImage/TempiFFT.swift; sourceTree = "<group>"; };
+		FE31DA13BD175D982A4E9D2A87583779 /* WaveformImageDrawer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaveformImageDrawer.swift; path = DSWaveformImage/DSWaveformImage/WaveformImageDrawer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38E59D0F954749873C0E7BE0B690DADD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6B36F97817B7C0C82F8726E7E5FCE7E /* CoreGraphics.framework in Frameworks */,
+				7A9BF4B59C5B1A26A89A0796C7CD2EFA /* Foundation.framework in Frameworks */,
+				6A3A4303B4F573E5A9DCF39CA0906999 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96EB85A6F6B56358B71BAD9D82BF6D7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED74317B4B497C4F0ED871F726304C73 /* AVFoundation.framework in Frameworks */,
+				92075985994A846C103B5DBEF9009A91 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A95F28E76F71CAC1D3EF88A5470F8B49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64FA8813F43B7D1DCB20498628F99FA7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04374B77103784B37D4351E5560BB436 /* DSWaveformImage */ = {
+			isa = PBXGroup;
+			children = (
+				2856C8583466F0EB65C914F48DEFB859 /* ColorExtensions.swift */,
+				C7559F8D1DBB82FD9E0F0ADF2E20C958 /* DSWaveformImage.h */,
+				FA1B3A971B006B5E8DBCDE3A841859B9 /* TempiFFT.swift */,
+				0732CCE086D7713550AA4ED34521688F /* WaveformAnalyzer.swift */,
+				FE31DA13BD175D982A4E9D2A87583779 /* WaveformImageDrawer.swift */,
+				55D67CC671F020ECC9D0AA1331C261ED /* WaveformImageTypes.swift */,
+				ACC7BE0A6F8D3564C69171F3B09BBD9F /* WaveformImageView.swift */,
+				136FCB51195D0D1F82D292A9A91DC36F /* Support Files */,
+			);
+			name = DSWaveformImage;
+			path = DSWaveformImage;
+			sourceTree = "<group>";
+		};
+		136FCB51195D0D1F82D292A9A91DC36F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				95846B71359ACF791F1E90123E1F7FA2 /* DSWaveformImage.modulemap */,
+				81BF74B41988FC47AF931BBD5AE6E66A /* DSWaveformImage-dummy.m */,
+				8BCB797B1560868FB1537DA086099067 /* DSWaveformImage-Info.plist */,
+				BB931DA9A8BE6E1671A88C5FCF2F0168 /* DSWaveformImage-prefix.pch */,
+				A49C63853098B0274F512EF5928DD733 /* DSWaveformImage-umbrella.h */,
+				663177F300EF0433B06313FDA16FB580 /* DSWaveformImage.debug.xcconfig */,
+				C6E5E51CEAA3376E84B96CF3D48CB5B9 /* DSWaveformImage.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DSWaveformImage";
+			sourceTree = "<group>";
+		};
+		51D815DBEAC945DA333AD78C0612A0B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04374B77103784B37D4351E5560BB436 /* DSWaveformImage */,
+				AD6F9DEB3397A997790A621FA268528F /* RangeSeekSlider */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		88C8CBBEA56F2FFDCDB74E6FEB3555F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4A4E2A39481CA29FAA67076012E946C /* DSWaveformImage */,
+				CA9AA63AECA916A4F7B4438C5C0852A4 /* Pods-Cube_Demo */,
+				C027A7405E856E45431E9E1E7913015F /* RangeSeekSlider */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		99739CC0EF4CEEB460F0CE076767F9B9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				904F128AC2191ED309D8DC8246EEA00C /* AVFoundation.framework */,
+				711C12397B6800349C78107366CDD683 /* CoreGraphics.framework */,
+				E4C83A3103575BC8AC91CAE7E83A5188 /* Foundation.framework */,
+				EE6DBC5FFC63E218AE5782901E821B15 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		AD6F9DEB3397A997790A621FA268528F /* RangeSeekSlider */ = {
+			isa = PBXGroup;
+			children = (
+				C61F815127B3B9271341D1CE27B18AFB /* RangeSeekSlider.swift */,
+				818823E14AF75F173184FE524ECE53E3 /* RangeSeekSliderDelegate.swift */,
+				346D88E351E0AC0609A4FDC0F2582F1D /* TapticEngine.swift */,
+				D727907A1492CD21A51A3F4ECE46E7BA /* Support Files */,
+			);
+			name = RangeSeekSlider;
+			path = RangeSeekSlider;
+			sourceTree = "<group>";
+		};
+		BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99739CC0EF4CEEB460F0CE076767F9B9 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3DF9FD0CA3FBEE73F4A6872E0D150F8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB5F4578018093862887F691F536BA8C /* Pods-Cube_Demo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CB5F4578018093862887F691F536BA8C /* Pods-Cube_Demo */ = {
+			isa = PBXGroup;
+			children = (
+				12A1849A3FF8A6000C53979D50CE4579 /* Pods-Cube_Demo.modulemap */,
+				77E1C5A548318B49AACB8561893C958B /* Pods-Cube_Demo-acknowledgements.markdown */,
+				BD3D018D2F593D71F7AFD83C7B9A0A46 /* Pods-Cube_Demo-acknowledgements.plist */,
+				2E3BD95C45862F8598D7FDAC6D4D68CD /* Pods-Cube_Demo-dummy.m */,
+				789C9AF250A5571B2732FA950E355041 /* Pods-Cube_Demo-frameworks.sh */,
+				809DAC76A07D68EAE3E6706DE08BC9D9 /* Pods-Cube_Demo-Info.plist */,
+				B92A6491202ECC6291B6634A8700E62E /* Pods-Cube_Demo-umbrella.h */,
+				CC1ACF9663264160727914F02C355A26 /* Pods-Cube_Demo.debug.xcconfig */,
+				7440068378FD19977284D9766DDCE838 /* Pods-Cube_Demo.release.xcconfig */,
+			);
+			name = "Pods-Cube_Demo";
+			path = "Target Support Files/Pods-Cube_Demo";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */,
+				51D815DBEAC945DA333AD78C0612A0B3 /* Pods */,
+				88C8CBBEA56F2FFDCDB74E6FEB3555F6 /* Products */,
+				C3DF9FD0CA3FBEE73F4A6872E0D150F8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D727907A1492CD21A51A3F4ECE46E7BA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				61CD39FA63ADF58E983DA4590BB63064 /* RangeSeekSlider.modulemap */,
+				34389306BEF536452FE65838D87512CD /* RangeSeekSlider-dummy.m */,
+				49AD7B137062E9E5AD8BF174C8F1FCF1 /* RangeSeekSlider-Info.plist */,
+				2DFE1D3C3A2C273CAF9DEBB2E146E359 /* RangeSeekSlider-prefix.pch */,
+				8CAC784D0EBB92A596C58759EBD36FEE /* RangeSeekSlider-umbrella.h */,
+				8AF944C3B1D894BF7DB84F6D9CFC9614 /* RangeSeekSlider.debug.xcconfig */,
+				34B8C540AB01D9F4F1547D94300B0310 /* RangeSeekSlider.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RangeSeekSlider";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		22C9F256C48141B79A7A18C5B69E5A67 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3FF3B22E366CCB7EF2709C5B2E3C9FA /* Pods-Cube_Demo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7927886923A4D082ECEF5F0F2754CF37 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01C14B76205EFB8A22BA213D2CA15378 /* RangeSeekSlider-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4E5DBE8DBC18B625DC2E44287CD7EAC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CF53CA025EC0D790A7CF16C053B8C3B /* DSWaveformImage.h in Headers */,
+				CCBC18164E12B58B5E3349D0852AEB43 /* DSWaveformImage-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4AFB864B337D1F74C1D79F4FC8F6C67F /* RangeSeekSlider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C568D8A321A5E172E8A7F0E9EA04B16 /* Build configuration list for PBXNativeTarget "RangeSeekSlider" */;
+			buildPhases = (
+				7927886923A4D082ECEF5F0F2754CF37 /* Headers */,
+				BDC3D0AA3ED5E6560FD9E5D9EBBFFF03 /* Sources */,
+				38E59D0F954749873C0E7BE0B690DADD /* Frameworks */,
+				768D17AA2F8C3EC734757606E1D0F89B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RangeSeekSlider;
+			productName = RangeSeekSlider;
+			productReference = C027A7405E856E45431E9E1E7913015F /* RangeSeekSlider */;
+			productType = "com.apple.product-type.framework";
+		};
+		991DA947EB2FE265870457A9D90FE398 /* DSWaveformImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0DD61908EFC53AC07C3A69D28027D6A /* Build configuration list for PBXNativeTarget "DSWaveformImage" */;
+			buildPhases = (
+				D4E5DBE8DBC18B625DC2E44287CD7EAC /* Headers */,
+				78D47B74530529ECCE7D79AB61FEEAC0 /* Sources */,
+				96EB85A6F6B56358B71BAD9D82BF6D7F /* Frameworks */,
+				1879E52082DE1EA255014740B7D6C0E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DSWaveformImage;
+			productName = DSWaveformImage;
+			productReference = C4A4E2A39481CA29FAA67076012E946C /* DSWaveformImage */;
+			productType = "com.apple.product-type.framework";
+		};
+		9A82C273AB76E143EA62BCA54A7642D5 /* Pods-Cube_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 374D34CBB593B1504F5F4B861FC2B8EB /* Build configuration list for PBXNativeTarget "Pods-Cube_Demo" */;
+			buildPhases = (
+				22C9F256C48141B79A7A18C5B69E5A67 /* Headers */,
+				6FF87A90F5806B280442BFE062175C97 /* Sources */,
+				A95F28E76F71CAC1D3EF88A5470F8B49 /* Frameworks */,
+				3AE12EC8E90FADD38DED02879F0A31D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C31029693463D90E82AC93B89685AB41 /* PBXTargetDependency */,
+				33FC6CA9A6FC00354B0A7B8A8591FA32 /* PBXTargetDependency */,
+			);
+			name = "Pods-Cube_Demo";
+			productName = Pods_Cube_Demo;
+			productReference = CA9AA63AECA916A4F7B4438C5C0852A4 /* Pods-Cube_Demo */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 88C8CBBEA56F2FFDCDB74E6FEB3555F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				991DA947EB2FE265870457A9D90FE398 /* DSWaveformImage */,
+				9A82C273AB76E143EA62BCA54A7642D5 /* Pods-Cube_Demo */,
+				4AFB864B337D1F74C1D79F4FC8F6C67F /* RangeSeekSlider */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1879E52082DE1EA255014740B7D6C0E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AE12EC8E90FADD38DED02879F0A31D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768D17AA2F8C3EC734757606E1D0F89B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6FF87A90F5806B280442BFE062175C97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B871921B9733E269A8280FE3884FF98A /* Pods-Cube_Demo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78D47B74530529ECCE7D79AB61FEEAC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A3943FD1367A3F7F2EE411ADA074372 /* ColorExtensions.swift in Sources */,
+				135B29DE7EAB503C626B0B1A57A6A9B1 /* DSWaveformImage-dummy.m in Sources */,
+				FD4C48FBE48B2F6F06D8E9D82D208B93 /* TempiFFT.swift in Sources */,
+				DA9D3599917F2D0D1E62469014BF021A /* WaveformAnalyzer.swift in Sources */,
+				45068A6DE28EC7E00F2740C52FDCE66F /* WaveformImageDrawer.swift in Sources */,
+				506B74703291A5027F877CB7F422C7C4 /* WaveformImageTypes.swift in Sources */,
+				C069C7ED32174E0C0E790F7DEDB05604 /* WaveformImageView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDC3D0AA3ED5E6560FD9E5D9EBBFFF03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E21F3D852BB38CFC48FA88555B20D9 /* RangeSeekSlider.swift in Sources */,
+				853C8E732FC9F53B04221DF97F180A94 /* RangeSeekSlider-dummy.m in Sources */,
+				F483C2520A10EF17FD63D4607F61FEB4 /* RangeSeekSliderDelegate.swift in Sources */,
+				DF965BDED7E88B3C59B16489773E6E2C /* TapticEngine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33FC6CA9A6FC00354B0A7B8A8591FA32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RangeSeekSlider;
+			target = 4AFB864B337D1F74C1D79F4FC8F6C67F /* RangeSeekSlider */;
+			targetProxy = AD95881D5024387AF35CD1ADDAEFD16B /* PBXContainerItemProxy */;
+		};
+		C31029693463D90E82AC93B89685AB41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DSWaveformImage;
+			target = 991DA947EB2FE265870457A9D90FE398 /* DSWaveformImage */;
+			targetProxy = A110FDA68F8375BDA9A2D2CFE4CD8356 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		625B7C229E3A2588306D11750287C755 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34B8C540AB01D9F4F1547D94300B0310 /* RangeSeekSlider.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RangeSeekSlider/RangeSeekSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RangeSeekSlider/RangeSeekSlider-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RangeSeekSlider/RangeSeekSlider.modulemap";
+				PRODUCT_MODULE_NAME = RangeSeekSlider;
+				PRODUCT_NAME = RangeSeekSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7394654F2969363BE0F41419D6A59BAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6E5E51CEAA3376E84B96CF3D48CB5B9 /* DSWaveformImage.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DSWaveformImage/DSWaveformImage-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DSWaveformImage/DSWaveformImage-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DSWaveformImage/DSWaveformImage.modulemap";
+				PRODUCT_MODULE_NAME = DSWaveformImage;
+				PRODUCT_NAME = DSWaveformImage;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		800FB4FD06DC29D560F323A6588AAC34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC1ACF9663264160727914F02C355A26 /* Pods-Cube_Demo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8DE5143C03248BB6CD542DE3963D6F3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		8EC9443ECA3B4D3DF3B579474DFAB192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7440068378FD19977284D9766DDCE838 /* Pods-Cube_Demo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		90F4039893C9A3F101D1832EC4466534 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AF944C3B1D894BF7DB84F6D9CFC9614 /* RangeSeekSlider.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RangeSeekSlider/RangeSeekSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RangeSeekSlider/RangeSeekSlider-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RangeSeekSlider/RangeSeekSlider.modulemap";
+				PRODUCT_MODULE_NAME = RangeSeekSlider;
+				PRODUCT_NAME = RangeSeekSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9E406C6AAF85E580207CD97B0044DEAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		DF73357B5C6DC9A8845F249F28C1387B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 663177F300EF0433B06313FDA16FB580 /* DSWaveformImage.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DSWaveformImage/DSWaveformImage-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DSWaveformImage/DSWaveformImage-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DSWaveformImage/DSWaveformImage.modulemap";
+				PRODUCT_MODULE_NAME = DSWaveformImage;
+				PRODUCT_NAME = DSWaveformImage;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C568D8A321A5E172E8A7F0E9EA04B16 /* Build configuration list for PBXNativeTarget "RangeSeekSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90F4039893C9A3F101D1832EC4466534 /* Debug */,
+				625B7C229E3A2588306D11750287C755 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		374D34CBB593B1504F5F4B861FC2B8EB /* Build configuration list for PBXNativeTarget "Pods-Cube_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800FB4FD06DC29D560F323A6588AAC34 /* Debug */,
+				8EC9443ECA3B4D3DF3B579474DFAB192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DE5143C03248BB6CD542DE3963D6F3A /* Debug */,
+				9E406C6AAF85E580207CD97B0044DEAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0DD61908EFC53AC07C3A69D28027D6A /* Build configuration list for PBXNativeTarget "DSWaveformImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF73357B5C6DC9A8845F249F28C1387B /* Debug */,
+				7394654F2969363BE0F41419D6A59BAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
