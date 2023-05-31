@@ -16,7 +16,7 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     @IBOutlet weak var imgWaveForm: UIImageView!
     @IBOutlet weak var imgEcgGraph: UIImageView!
     @IBOutlet weak var graphView: UIImageView!
-  //  @IBOutlet weak var waveFormView: WaveformLiveView!
+    @IBOutlet weak var waveFormView: WaveformImageView!
     @IBOutlet weak var rangeSlider: RangeSeekSlider!
     var adpcmDecoder = ADPCMDecode()
     var toneGenerator = ToneGenerator()
