@@ -15,6 +15,9 @@
 		5D6E479C2A12515500BEB5A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D6E479A2A12515500BEB5A5 /* Main.storyboard */; };
 		5D6E479E2A12515A00BEB5A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D6E479D2A12515A00BEB5A5 /* Assets.xcassets */; };
 		5D6E47A12A12515A00BEB5A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D6E479F2A12515A00BEB5A5 /* LaunchScreen.storyboard */; };
+		5D9D43132A2731410056D5F6 /* StethoRawData in Resources */ = {isa = PBXBuildFile; fileRef = 5D9D43122A2731410056D5F6 /* StethoRawData */; };
+		5D9D43152A2737990056D5F6 /* Pyaar Hota Kayi Baar Hai(PagalWorld.com.se).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5D9D43142A2737990056D5F6 /* Pyaar Hota Kayi Baar Hai(PagalWorld.com.se).mp3 */; };
+		5D9D43172A274D020056D5F6 /* rawDataWithoutDecoding in Resources */ = {isa = PBXBuildFile; fileRef = 5D9D43162A274D020056D5F6 /* rawDataWithoutDecoding */; };
 		5D9DC03C2A13522A001A464E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DC03B2A13522A001A464E /* SplashViewController.swift */; };
 		5D9DC03E2A135232001A464E /* OrgLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DC03D2A135232001A464E /* OrgLoginViewController.swift */; };
 		5D9DC0402A135237001A464E /* HomeRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9DC03F2A135237001A464E /* HomeRecordViewController.swift */; };
@@ -61,6 +64,9 @@
 		5D6E47A22A12515A00BEB5A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D6E47A72A12515A00BEB5A5 /* Cube_DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cube_DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6E47B12A12515A00BEB5A5 /* Cube_DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cube_DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D9D43122A2731410056D5F6 /* StethoRawData */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StethoRawData; sourceTree = "<group>"; };
+		5D9D43142A2737990056D5F6 /* Pyaar Hota Kayi Baar Hai(PagalWorld.com.se).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Pyaar Hota Kayi Baar Hai(PagalWorld.com.se).mp3"; sourceTree = "<group>"; };
+		5D9D43162A274D020056D5F6 /* rawDataWithoutDecoding */ = {isa = PBXFileReference; lastKnownFileType = file; path = rawDataWithoutDecoding; sourceTree = "<group>"; };
 		5D9DC03B2A13522A001A464E /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		5D9DC03D2A135232001A464E /* OrgLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrgLoginViewController.swift; sourceTree = "<group>"; };
 		5D9DC03F2A135237001A464E /* HomeRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRecordViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +152,10 @@
 				5D9DC0432A135DD0001A464E /* PairDeviceViewController.swift */,
 				5D9DC03D2A135232001A464E /* OrgLoginViewController.swift */,
 				5DD1A1E72A25D94800479E90 /* correctRecoedingThreshold */,
+				5D9D43142A2737990056D5F6 /* Pyaar Hota Kayi Baar Hai(PagalWorld.com.se).mp3 */,
 				5DD1A1EB2A25F10200479E90 /* 0DF4A540-E331-43B8-85C0-76BCC8290275 */,
+				5D9D43122A2731410056D5F6 /* StethoRawData */,
+				5D9D43162A274D020056D5F6 /* rawDataWithoutDecoding */,
 				5DD1A1ED2A25F38800479E90 /* DataParser.swift */,
 				5DE6110D2A2476ED00F2B137 /* RingBuffer.swift */,
 				5DE6110F2A2477D300F2B137 /* ToneGenerator.swift */,
@@ -274,10 +283,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9D43152A2737990056D5F6 /* Pyaar Hota Kayi Baar Hai(PagalWorld.com.se).mp3 in Resources */,
 				5DD1A1E82A25D94800479E90 /* correctRecoedingThreshold in Resources */,
 				5DD1A1EC2A25F10200479E90 /* 0DF4A540-E331-43B8-85C0-76BCC8290275 in Resources */,
+				5D9D43172A274D020056D5F6 /* rawDataWithoutDecoding in Resources */,
 				5D6E47A12A12515A00BEB5A5 /* LaunchScreen.storyboard in Resources */,
 				5D6E479E2A12515A00BEB5A5 /* Assets.xcassets in Resources */,
+				5D9D43132A2731410056D5F6 /* StethoRawData in Resources */,
 				5D6E479C2A12515500BEB5A5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

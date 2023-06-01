@@ -8,6 +8,8 @@ import UIKit
 import RangeSeekSlider
 import CoreBluetooth
 import DSWaveformImage
+import AVFoundation
+ 
 
 class ViewController: UIViewController,RangeSeekSliderDelegate {
     
@@ -26,6 +28,7 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     var transferCharacteristic: CBCharacteristic?
     
     var recordingData = [[Double]]()
+    var waveData : Data!
     // var recordingData = [Double]()
     
     var timer = Timer()
@@ -33,18 +36,28 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     var shapeLayer = CAShapeLayer()
     var beziewPath  = UIBezierPath()
     var arrayBezierPath = [UIBezierPath]()
-    var points = [CGPoint]()
-    
+    var points = Array.init(repeating: CGPoint(), count: 1050)
+    var byttes = [UInt8]()
+    var pointsCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        waveFormView.layer.addSublayer(shapeLayer)
         if let filePath = Bundle.main.url(forResource: "correctRecoedingThreshold", withExtension: nil) {
             if var ecgData = try? Data(contentsOf: filePath) {
                 self.recordingData = self.parseRecording(dataECG: ecgData)
             }
         }
-        self.graphView.layer.addSublayer(self.shapeLayer)
+        //self.graphView.layer.addSublayer(self.shapeLayer)
         
+        if let filePath = Bundle.main.url(forResource: "StethoRawData", withExtension: nil) {
+            if var stethoData = try? Data(contentsOf: filePath) {
+                self.waveData = stethoData
+                print(stethoData)
+            }
+        }
+        
+        
+      
         
         toneGenerator.setupAudioUnit()
         toneGenerator.start()
@@ -78,7 +91,53 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         //        try? self.rawData.write(to: path1)
         
         // Draw graph
-        self.timer = Timer.scheduledTimer(timeInterval: 0.002, target: self, selector: #selector(drawGraph), userInfo: nil, repeats: true)
+       // drawWaveForm()
+        
+        // Draw the graph.
+
+        let data = try! Data(contentsOf: Bundle.main.url(forResource: "Pyaar Hota Kayi Baar Hai(PagalWorld.com.se)", withExtension: "mp3")!)
+        self.byttes = [UInt8](data)
+        
+//        let bezierPath = UIBezierPath()
+//        //var points = Array.init(repeating: CGPoint(), count: 1050)
+//        var points = [CGPoint]()
+//        let xOffset = 1.0
+//        let multiplyingFactor = 0.2
+//        let yOffset = waveFormView.frame.height / 2
+//        var count = 0
+//        for i in 0..<350 {
+////            points[count % 1050] = CGPoint(x: xOffset * Double(i), y: yOffset + Double(byttes[i]) * multiplyingFactor)
+////            count += 1
+////            points[count % 1050] = CGPoint(x: xOffset * Double(i), y: yOffset - Double(byttes[i]) * multiplyingFactor)
+////            count += 1
+////            points[count % 1050] = CGPoint(x: xOffset * Double(i), y: yOffset + Double(byttes[i]) * multiplyingFactor)
+////            count += 1
+//
+//            points.append(CGPoint(x: xOffset * Double(i), y: yOffset + Double(byttes[i]) * multiplyingFactor))
+//            points.append(CGPoint(x: xOffset * Double(i), y: yOffset - Double(byttes[i]) * multiplyingFactor))
+//            points.append(CGPoint(x: xOffset * Double(i), y: yOffset))
+//        }
+//        for i in 0..<points.count {
+//            if i == 0 {
+//                bezierPath.move(to: points[i])
+//            } else {
+//                bezierPath.addLine(to: points[i])
+//            }
+//        }
+//        let shapeLayer = CAShapeLayer()
+//
+//        shapeLayer.path = bezierPath.cgPath
+//        shapeLayer.strokeColor = UIColor.black.cgColor
+//        shapeLayer.lineWidth = 1.0
+//        shapeLayer.fillColor = UIColor.clear.cgColor
+//        waveFormView.layer.addSublayer(shapeLayer)
+        
+        
+        
+//        drawPhonoGraphGraph(data: data)
+        
+        //self.timer = Timer.scheduledTimer(timeInterval: 0.002, target: self, selector: #selector(drawGraph), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(drawAudioGraph), userInfo: nil, repeats: true)
     }
     @IBAction func filterHeartTapped(_ sender: Any) {
         rangeSlider.selectedMinValue = 20
@@ -179,12 +238,44 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         
         self.currentDataCount += 1
     }
+    @objc func drawAudioGraph() {
+        let bezierPath = UIBezierPath()
+        //var points = Array.init(repeating: CGPoint(), count: 1050)
+        let xOffset = 1.0
+        let multiplyingFactor = 0.2
+        let yOffset = waveFormView.frame.height / 2
+        
+        
+        points[pointsCount % 1050] = CGPoint(x: xOffset * Double(currentDataCount % 350), y: yOffset + Double(byttes[currentDataCount]) * multiplyingFactor)
+        points[(pointsCount + 1) % 1050] = CGPoint(x: xOffset * Double((currentDataCount + 1) % 350), y: yOffset - Double(byttes[currentDataCount]) * multiplyingFactor)
+        points[(pointsCount + 2) % 1050] = CGPoint(x: xOffset * Double((currentDataCount + 2) % 350), y: yOffset)
+        pointsCount += 3
+        currentDataCount += 1
+//        for i in 0..<min(pointsCount, points.count) {
+//            points.append(CGPoint(x: xOffset * Double(i), y: yOffset + Double(byttes[i]) * multiplyingFactor))
+//            points.append(CGPoint(x: xOffset * Double(i), y: yOffset - Double(byttes[i]) * multiplyingFactor))
+//            points.append(CGPoint(x: xOffset * Double(i), y: yOffset))
+//        }
+        for i in 0..<min(pointsCount, points.count) {
+            if i == 0 || i == self.currentDataCount % 350 {
+                bezierPath.move(to: points[i])
+            } else {
+                bezierPath.addLine(to: points[i])
+            }
+        }
+        
+        
+        shapeLayer.path = bezierPath.cgPath
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.lineWidth = 1.0
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        
+    }
     
     
     // Phonogram (Stetho Graph)
-    func drawWaveForm(){
-        
-    }
+   
+    
     
 }
 extension ViewController: CBPeripheralDelegate {
