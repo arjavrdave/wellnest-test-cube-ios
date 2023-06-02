@@ -2,14 +2,14 @@
 //  RingBuffer.swift
 //  Cube_Demo
 //
-//  Created by Royale Cheese on 29/05/23.
+//  Created by Dhruvi Prajapati on 29/05/23.
 //
 
 import Foundation
 public struct RingBuffer<T> {
   private var array: [T?]
-  private var readIndex = 0
-  private var writeIndex = 0
+   var readIndex = 0
+   var writeIndex = 0
 
   public init(count: Int) {
     array = [T?](repeating: nil, count: count)
@@ -37,7 +37,7 @@ public struct RingBuffer<T> {
     }
   }
 
-  fileprivate var availableSpaceForReading: Int {
+    var availableSpaceForReading: Int {
     return writeIndex - readIndex
   }
 
@@ -52,4 +52,8 @@ public struct RingBuffer<T> {
   public var isFull: Bool {
     return availableSpaceForWriting == 0
   }
+    
+    public var getQueueData: [T?] {
+        return array
+    }
 }
