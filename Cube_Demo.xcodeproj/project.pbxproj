@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43AED24F2A2A03EA00177205 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AED24E2A2A03EA00177205 /* AudioPlayer.swift */; };
+		43B0BAAC2A977851002DB5BC /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA42A977851002DB5BC /* Transformer.swift */; };
+		43B0BAAD2A977851002DB5BC /* ViewPortHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA52A977851002DB5BC /* ViewPortHandler.swift */; };
+		43B0BAAE2A977851002DB5BC /* Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA62A977851002DB5BC /* Spec.swift */; };
+		43B0BAAF2A977851002DB5BC /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA72A977851002DB5BC /* Queue.swift */; };
+		43B0BAB02A977851002DB5BC /* RealTimeVitalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA82A977851002DB5BC /* RealTimeVitalRenderer.swift */; };
+		43B0BAB12A977851002DB5BC /* RealTimeDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA92A977851002DB5BC /* RealTimeDataHandler.swift */; };
+		43B0BAB22A977851002DB5BC /* RealTimeVitalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAAA2A977851002DB5BC /* RealTimeVitalChartView.swift */; };
+		43B0BAB32A977851002DB5BC /* VitalChartDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAAB2A977851002DB5BC /* VitalChartDataProvider.swift */; };
 		5D47C4132A13904F00F85614 /* AuscultationProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47C4122A13904F00F85614 /* AuscultationProcessViewController.swift */; };
 		5D47C41B2A13AB4E00F85614 /* TransferServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47C41A2A13AB4E00F85614 /* TransferServices.swift */; };
 		5D6E47952A12515500BEB5A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6E47942A12515500BEB5A5 /* AppDelegate.swift */; };
@@ -52,6 +61,15 @@
 
 /* Begin PBXFileReference section */
 		3EB9F6DCD4746BA5C00BDF12 /* Pods-Cube_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cube_Demo.debug.xcconfig"; path = "Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		43AED24E2A2A03EA00177205 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		43B0BAA42A977851002DB5BC /* Transformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformer.swift; sourceTree = "<group>"; };
+		43B0BAA52A977851002DB5BC /* ViewPortHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPortHandler.swift; sourceTree = "<group>"; };
+		43B0BAA62A977851002DB5BC /* Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spec.swift; sourceTree = "<group>"; };
+		43B0BAA72A977851002DB5BC /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		43B0BAA82A977851002DB5BC /* RealTimeVitalRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeVitalRenderer.swift; sourceTree = "<group>"; };
+		43B0BAA92A977851002DB5BC /* RealTimeDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeDataHandler.swift; sourceTree = "<group>"; };
+		43B0BAAA2A977851002DB5BC /* RealTimeVitalChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeVitalChartView.swift; sourceTree = "<group>"; };
+		43B0BAAB2A977851002DB5BC /* VitalChartDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VitalChartDataProvider.swift; sourceTree = "<group>"; };
 		5D47C4122A13904F00F85614 /* AuscultationProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuscultationProcessViewController.swift; sourceTree = "<group>"; };
 		5D47C41A2A13AB4E00F85614 /* TransferServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferServices.swift; sourceTree = "<group>"; };
 		5D6E47912A12515500BEB5A5 /* Cube_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cube_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +127,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43B0BAA32A977851002DB5BC /* infoChart */ = {
+			isa = PBXGroup;
+			children = (
+				43B0BAA42A977851002DB5BC /* Transformer.swift */,
+				43B0BAA52A977851002DB5BC /* ViewPortHandler.swift */,
+				43B0BAA62A977851002DB5BC /* Spec.swift */,
+				43B0BAA72A977851002DB5BC /* Queue.swift */,
+				43B0BAA82A977851002DB5BC /* RealTimeVitalRenderer.swift */,
+				43B0BAA92A977851002DB5BC /* RealTimeDataHandler.swift */,
+				43B0BAAA2A977851002DB5BC /* RealTimeVitalChartView.swift */,
+				43B0BAAB2A977851002DB5BC /* VitalChartDataProvider.swift */,
+			);
+			path = infoChart;
+			sourceTree = "<group>";
+		};
 		57801B38EE4729E9BCAEFC53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,10 +193,12 @@
 				5DE6110D2A2476ED00F2B137 /* RingBuffer.swift */,
 				5DE6110F2A2477D300F2B137 /* ToneGenerator.swift */,
 				5D6E47982A12515500BEB5A5 /* ViewController.swift */,
+				43B0BAA32A977851002DB5BC /* infoChart */,
 				5D6E479A2A12515500BEB5A5 /* Main.storyboard */,
 				5D6E479D2A12515A00BEB5A5 /* Assets.xcassets */,
 				5D6E479F2A12515A00BEB5A5 /* LaunchScreen.storyboard */,
 				5D6E47A22A12515A00BEB5A5 /* Info.plist */,
+				43AED24E2A2A03EA00177205 /* AudioPlayer.swift */,
 			);
 			path = Cube_Demo;
 			sourceTree = "<group>";
@@ -360,17 +395,26 @@
 				5D6E47992A12515500BEB5A5 /* ViewController.swift in Sources */,
 				5D6E47952A12515500BEB5A5 /* AppDelegate.swift in Sources */,
 				5D9DC03E2A135232001A464E /* OrgLoginViewController.swift in Sources */,
+				43B0BAB12A977851002DB5BC /* RealTimeDataHandler.swift in Sources */,
 				5DE6110E2A2476ED00F2B137 /* RingBuffer.swift in Sources */,
+				43B0BAB02A977851002DB5BC /* RealTimeVitalRenderer.swift in Sources */,
 				5D6E47972A12515500BEB5A5 /* SceneDelegate.swift in Sources */,
 				5DE611102A2477D300F2B137 /* ToneGenerator.swift in Sources */,
 				5D47C4132A13904F00F85614 /* AuscultationProcessViewController.swift in Sources */,
+				43B0BAAC2A977851002DB5BC /* Transformer.swift in Sources */,
+				43B0BAAE2A977851002DB5BC /* Spec.swift in Sources */,
+				43B0BAB22A977851002DB5BC /* RealTimeVitalChartView.swift in Sources */,
+				43B0BAAD2A977851002DB5BC /* ViewPortHandler.swift in Sources */,
 				5D47C41B2A13AB4E00F85614 /* TransferServices.swift in Sources */,
 				5D9DC0442A135DD1001A464E /* PairDeviceViewController.swift in Sources */,
 				5D9DC0422A135718001A464E /* UIParentViewController.swift in Sources */,
 				5D9DC0402A135237001A464E /* HomeRecordViewController.swift in Sources */,
+				43AED24F2A2A03EA00177205 /* AudioPlayer.swift in Sources */,
+				43B0BAAF2A977851002DB5BC /* Queue.swift in Sources */,
 				5DD1A1EE2A25F38800479E90 /* DataParser.swift in Sources */,
 				5DC1E6D52A2093AE00F07ADE /* ADPCMDecode.swift in Sources */,
 				5DF286A92A13606900466D7B /* BluetoothPairTableViewCell.swift in Sources */,
+				43B0BAB32A977851002DB5BC /* VitalChartDataProvider.swift in Sources */,
 				5D9DC03C2A13522A001A464E /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +593,7 @@
 				DEVELOPMENT_TEAM = PLFW27U9D2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cube_Demo/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -560,7 +605,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "demo.Cube-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "demo.Cube-Demo-Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -579,6 +624,7 @@
 				DEVELOPMENT_TEAM = PLFW27U9D2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cube_Demo/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Our app uses bluetooth to find, connect and transfer data between different devices";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -590,7 +636,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "demo.Cube-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "demo.Cube-Demo-Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

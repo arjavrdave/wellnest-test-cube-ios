@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OUd-pm-w2G">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -122,7 +122,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ao7-c8-ANA" userLabel="GraphView">
                                         <rect key="frame" x="0.0" y="125" width="358" height="290"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2D-2s-IMq" userLabel="Ecg Graph View">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2D-2s-IMq" userLabel="Ecg Graph View" customClass="RealTimeVitalChartView" customModule="Cube_Demo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="358" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ecg_Background" translatesAutoresizingMaskIntoConstraints="NO" id="u23-Ny-TBc">
@@ -393,7 +393,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="O4N-21-Cca"/>
                     <connections>
-                        <outlet property="graphView" destination="u23-Ny-TBc" id="8u4-q2-7PU"/>
+                        <outlet property="ecgGraphView" destination="V2D-2s-IMq" id="RMc-2m-2KR"/>
                         <outlet property="imgEcgGraph" destination="u23-Ny-TBc" id="Kkz-2D-PI0"/>
                         <outlet property="lblHighFrequency" destination="11T-Bi-cvw" id="bvm-Xe-uUw"/>
                         <outlet property="lblLowFrequency" destination="X91-D6-Ycm" id="pOe-Vg-aoI"/>
@@ -403,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="84.507042253521135"/>
+            <point key="canvasLocation" x="2429.2307692307691" y="83.886255924170612"/>
         </scene>
         <!--Org Login View Controller-->
         <scene sceneID="fQX-Im-ISR">
@@ -685,12 +685,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pair a Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoG-Mq-8AA">
-                                <rect key="frame" x="139" y="67" width="112" height="21"/>
+                                <rect key="frame" x="139" y="111" width="112" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqs-Aa-ViV">
-                                <rect key="frame" x="335" y="60" width="35" height="35"/>
+                                <rect key="frame" x="335" y="104" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Tqs-Aa-ViV" secondAttribute="height" multiplier="1:1" id="40z-hN-vQa"/>
                                     <constraint firstAttribute="height" constant="35" id="F2h-hP-vPn"/>
@@ -715,7 +715,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSw-bD-hbG">
-                                <rect key="frame" x="25" y="60" width="35" height="35"/>
+                                <rect key="frame" x="25" y="104" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fSw-bD-hbG" secondAttribute="height" multiplier="1:1" id="4jh-E4-9bo"/>
                                     <constraint firstAttribute="height" constant="35" id="Qmk-LB-t6J"/>
@@ -734,7 +734,7 @@ from the list to connect</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zVI-ar-FeE">
-                                <rect key="frame" x="0.0" y="95" width="390" height="595"/>
+                                <rect key="frame" x="0.0" y="139" width="390" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BluetoothPairTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BluetoothPairTableViewCell" rowHeight="71" id="w2R-pS-5xE" customClass="BluetoothPairTableViewCell" customModule="Cube_Demo" customModuleProvider="target">
@@ -809,6 +809,7 @@ from the list to connect</string>
                             <constraint firstItem="zVI-ar-FeE" firstAttribute="top" secondItem="Tqs-Aa-ViV" secondAttribute="bottom" id="wG4-hO-q8f"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="DcE-bc-NOe"/>
                     <connections>
                         <outlet property="btnBack" destination="fSw-bD-hbG" id="KwJ-xW-KEU"/>
                         <outlet property="btnCancel" destination="Tqs-Aa-ViV" id="VT9-eJ-PAE"/>
@@ -820,7 +821,25 @@ from the list to connect</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhA-p3-1rU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="836" y="75"/>
+            <point key="canvasLocation" x="1589" y="262"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vJA-jN-rQb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OUd-pm-w2G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gYV-SZ-DZo">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="peJ-Nh-hOF" kind="relationship" relationship="rootViewController" id="vna-z2-2ux"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="utj-iE-ARG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835.38461538461536" y="74.644549763033169"/>
         </scene>
     </scenes>
     <designables>

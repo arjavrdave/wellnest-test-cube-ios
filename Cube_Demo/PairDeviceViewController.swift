@@ -57,6 +57,7 @@ class PairDeviceViewController: UIParentViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         self.lblConnectMsg.text = "Press & hold power button until you see blinking lights on Wellnest 12L®"
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -190,7 +191,7 @@ extension PairDeviceViewController: CBCentralManagerDelegate {
             print("Discovered %s at %d", String(describing: peripheral.name), RSSI.intValue)
             
             if peripheral.name?.hasPrefix("BB") == true{
-                if let localName = advertisementData[CBAdvertisementDataLocalNameKey] {
+                if let localName = advertisementData[CBAdvertisementDataLocalNameKey], !self.peripherals.contains(peripheral) {
                     self.advertisementData.append(String(describing: localName))
                     self.peripherals.append(peripheral)
                     self.tableView.reloadData()

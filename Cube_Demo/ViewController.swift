@@ -40,13 +40,25 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     var byttes = [UInt8]()
     var pointsCount = 0
     var dataByteBuffer = RingBuffer<UInt8>(count: 350)
+    // ECG
+    let dataParserIIR = DataParser()
+    var nForIIR: Int = 0
+    var ecgValuesArrayToShare = [String]()
+    var filteredValuesArrayToShare = [String]()
+    @IBOutlet var ecgGraphView: RealTimeVitalChartView!
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let filePath = Bundle.main.url(forResource: "correctRecoedingThreshold", withExtension: nil) {
-            if var ecgData = try? Data(contentsOf: filePath) {
-                self.recordingData = self.parseRecording(dataECG: ecgData)
-            }
-        }
+        self.navigationController?.navigationBar.isHidden = true
+        initECGChart()
+        
+//        if let filePath = Bundle.main.url(forResource: "correctRecoedingThreshold", withExtension: nil) {
+//            if var ecgData = try? Data(contentsOf: filePath) {
+//                self.recordingData = self.parseRecording(dataECG: ecgData)
+//            }
+//        }
         
         if let filePath = Bundle.main.url(forResource: "StethoRawData", withExtension: nil) {
             if var stethoData = try? Data(contentsOf: filePath) {
@@ -66,6 +78,12 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         rangeSlider.colorBetweenHandles = .systemBlue
         rangeSlider.tintColor = .lightGray
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        DispatchQueue.main.async {
+            self.ecgGraphView.updateChartSize()
+        }
+    }
     
     @IBAction func btnBackTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -76,27 +94,7 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         lblLowFrequency.text =  "  \(Int(rangeSlider.selectedMinValue)) Hz"
         lblHighFrequency.text =  "\(Int(rangeSlider.selectedMaxValue)) Hz  "
     }
-    @IBAction func btnShareFileTapped(_ sender: UIButton) {
-        let data = try! Data(contentsOf: Bundle.main.url(forResource: "Pyaar Hota Kayi Baar Hai(PagalWorld.com.se)", withExtension: "mp3")!)
-
-        // Decode data
-        //        let path = FileManager.default.urls(for: .documentDirectory,
-        //                                            in: .userDomainMask)[0].appendingPathComponent("DhruviMadam")
-        //
-        //
-        //        try? self.helloData.write(to: path)
-        //        let path1 = FileManager.default.urls(for: .documentDirectory,
-        //                                             in: .userDomainMask)[0].appendingPathComponent("DhruviMadamRaw")
-        //        try? self.rawData.write(to: path1)
-        
-        // Draw graph
-       // drawWaveForm()
-        
-      
-        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(drawGraph), userInfo: nil, repeats: true)
-        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(phonogramGraph), userInfo: nil, repeats: true)
-    }
-
+   
     @IBAction func filterHeartTapped(_ sender: Any) {
         rangeSlider.selectedMinValue = 20
         rangeSlider.selectedMaxValue = 200
@@ -131,27 +129,27 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     }
     
     // Parsing Data
-    func parseRecording(dataECG : Data) -> [[Double]] {
-        let arr = [UInt8](dataECG)
-        var finalArr = [[Double]]()
-        var innerArr = [Double]()
-        for a in arr {
-            innerArr.append(Double(a))
-            if(innerArr.count == 16) {
-                finalArr.append(innerArr)
-                innerArr = [Double]()
-            }
-        }
-        let chartsData = DataParser().setUpDataForRecording(finalArr)
-        var sublist = [[Double]]()
-        for j in 0..<12 {
-            sublist.append([Double]())
-            for i in 0..<chartsData.count{
-                sublist[j].append(chartsData[i][j])
-            }
-        }
-        return sublist;
-    }
+//    func parseRecording(dataECG : Data) -> [[Double]] {
+//        let arr = [UInt8](dataECG)
+//        var finalArr = [[Double]]()
+//        var innerArr = [Double]()
+//        for a in arr {
+//            innerArr.append(Double(a))
+//            if(innerArr.count == 16) {
+//                finalArr.append(innerArr)
+//                innerArr = [Double]()
+//            }
+//        }
+//        let chartsData = DataParser().setUpDataForRecording(finalArr)
+//        var sublist = [[Double]]()
+//        for j in 0..<12 {
+//            sublist.append([Double]())
+//            for i in 0..<chartsData.count{
+//                sublist[j].append(chartsData[i][j])
+//            }
+//        }
+//        return sublist;
+//    }
     // Draw ECG graph
     @objc func drawGraph() {
         guard currentDataCount != self.recordingData[1].count else {
@@ -261,7 +259,7 @@ extension ViewController: CBPeripheralDelegate {
             // Loop through the newly filled peripheral.services array, just in case there's more than one.
             guard let peripheralServices = peripheral.services else { return }
             for service in peripheralServices {
-                peripheral.discoverCharacteristics([TransferService.characteristicUUID], for: service)
+                peripheral.discoverCharacteristics([TransferService.characteristicUUID, TransferService.ecgCharacteristicUUID], for: service)
             }
         }
         
@@ -279,7 +277,7 @@ extension ViewController: CBPeripheralDelegate {
             
             // Again, we loop through the array, just in case and check if it's the right one
             guard let serviceCharacteristics = service.characteristics else { return }
-            for characteristic in serviceCharacteristics where characteristic.uuid == TransferService.characteristicUUID {
+            for characteristic in serviceCharacteristics where (characteristic.uuid == TransferService.characteristicUUID || TransferService.ecgCharacteristicUUID == characteristic.uuid) {
                 // If it is, subscribe to it
                 transferCharacteristic = characteristic
                 peripheral.setNotifyValue(true, for: characteristic)
@@ -307,7 +305,7 @@ extension ViewController: CBPeripheralDelegate {
             guard let value = characteristic.value else {
                 return
             }
-            if characteristic.uuid.uuidString == "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"{
+            if characteristic.uuid.uuidString == "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"{/*
                 rawData.append(value)
                 if ringBuffer == nil{
                     ringBuffer = RingBuffer<Data>(count: rawData.count)
@@ -323,12 +321,92 @@ extension ViewController: CBPeripheralDelegate {
 //                    adpcmDecoder.adpcm_decode(code: Int(byte))
 //                    print("Decoding", adpcmDecoder.adpcm_decode(code: Int(byte)))
                 }
+                                                                                         */
             }
-            if characteristic.uuid.uuidString == "6E40196A-B5A3-F393-E0A9-E50E24DCCA9E"{
-                for byte in value {
-                    print("ECGByte = ", byte)
+            
+            //6E40196A-B5A3-F393-E0A9-E50E24DCCA9E
+            if characteristic.uuid.uuidString == TransferService.ecgCharacteristicUUID.uuidString {
+//                rawECGData.append(value)
+                // print(rawECGData)
+                for i in stride(from: 0, to: value.count, by: 2) {
+                    let b1 = UInt16(value[i])
+                    let b2 = UInt16(value[i+1])
+                    let combined = b2 << 8 | b1
+                    let filteredIIR = dataParserIIR.caluclateXY(index: 0, value: Double(combined), n: self.nForIIR)
+                    self.nForIIR = (self.nForIIR + 1) % 10
+                    ecgValuesArrayToShare.append("\(combined)")
+                    filteredValuesArrayToShare.append("\(filteredIIR)")
+                    ecgGraphView.dataHandler.enqueue(value: Double(filteredIIR))
                 }
             }
         }
 }
 
+
+//MARK: Share File
+extension ViewController {
+    @IBAction func btnShareFileTapped(_ sender: UIButton) {
+        let data = try! Data(contentsOf: Bundle.main.url(forResource: "Pyaar Hota Kayi Baar Hai(PagalWorld.com.se)", withExtension: "mp3")!)
+        
+        let originalECGFilePath = createFile(array: self.ecgValuesArrayToShare, fileName: "ECGFile")
+        let filteredECGfilePath = createFile(array: self.filteredValuesArrayToShare, fileName: "Filtered")
+
+        let controller = UIActivityViewController(activityItems: [originalECGFilePath, filteredECGfilePath], applicationActivities: nil)
+        self.present(controller, animated: true) {
+            //print("done")
+        }
+  
+
+        // Decode data
+        //        let path = FileManager.default.urls(for: .documentDirectory,
+        //                                            in: .userDomainMask)[0].appendingPathComponent("DhruviMadam")
+        //
+        //
+        //        try? self.helloData.write(to: path)
+        //        let path1 = FileManager.default.urls(for: .documentDirectory,
+        //                                             in: .userDomainMask)[0].appendingPathComponent("DhruviMadamRaw")
+        //        try? self.rawData.write(to: path1)
+        
+        // Draw graph
+       // drawWaveForm()
+        
+      
+//        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(drawGraph), userInfo: nil, repeats: true)
+//        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(phonogramGraph), userInfo: nil, repeats: true)
+    }
+
+    
+    
+    func createFile(array: [String], fileName: String) -> URL {
+        
+        let date = Date()
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "dd-MM--HH:mm"
+        
+        let path = FileManager.default.urls(for: .documentDirectory,
+                                            in: .userDomainMask)[0].appendingPathComponent("\(fileName)\(dateFormat.string(from: date)).txt")
+        
+        let ecgIntDataInComma = array.joined(separator: "\n")
+        let ecgStrigData = ecgIntDataInComma.data(using: String.Encoding.utf8)!
+        try? ecgStrigData.write(to: path)
+        
+        return path
+        
+    }
+}
+
+// Vital Line Graph
+extension ViewController {
+    
+    func initECGChart() {
+        let spec = Spec(oneSecondDataCount: 500, //sample rate
+                        visibleSecondRange: 2, // sec data in view at a time
+                        refreshGraphInterval: 0.069, // refresh graph (ploat by 0.1 sec
+                        vitalMaxValue: 5000,
+                        vitalMinValue: 1000)
+        ecgGraphView.lineColor = .black
+        ecgGraphView.valueCircleIndicatorColor = .black
+        self.ecgGraphView.setRealTimeSpec(spec: spec)
+    }
+    
+}
