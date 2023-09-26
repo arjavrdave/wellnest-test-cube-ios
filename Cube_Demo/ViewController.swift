@@ -45,6 +45,11 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     var nForIIR: Int = 0
     var ecgValuesArrayToShare = [String]()
     var filteredValuesArrayToShare = [String]()
+    var filteredValuesDouble = [Double]()
+    var bpmCalculations = BPMCalcaulations()
+
+    var arrayECGDataForBPMCalculations = [Int]()
+    
     @IBOutlet var ecgGraphView: RealTimeVitalChartView!
     
 
@@ -54,11 +59,6 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         self.navigationController?.navigationBar.isHidden = true
         initECGChart()
         
-//        if let filePath = Bundle.main.url(forResource: "correctRecoedingThreshold", withExtension: nil) {
-//            if var ecgData = try? Data(contentsOf: filePath) {
-//                self.recordingData = self.parseRecording(dataECG: ecgData)
-//            }
-//        }
         
         if let filePath = Bundle.main.url(forResource: "StethoRawData", withExtension: nil) {
             if var stethoData = try? Data(contentsOf: filePath) {
@@ -68,6 +68,9 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         }
         
         self.rawData = try! Data(contentsOf: Bundle.main.url(forResource: "Pyaar Hota Kayi Baar Hai(PagalWorld.com.se)", withExtension: "mp3")!)
+        
+        self.arrayECGDataForBPMCalculations = getECGDataFromFile()
+        bpmCalculations.calculateBPM(dataArray: self.arrayECGDataForBPMCalculations)
 
         toneGenerator.setupAudioUnit()
         toneGenerator.start()
@@ -78,11 +81,27 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         rangeSlider.colorBetweenHandles = .systemBlue
         rangeSlider.tintColor = .lightGray
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         DispatchQueue.main.async {
             self.ecgGraphView.updateChartSize()
         }
+    }
+    
+    func getECGDataFromFile() -> [Int] {
+        if let filePath = Bundle.main.url(forResource: "ECGDataForBPM", withExtension: nil) {
+            if var ecgDataForBPM = try? String(contentsOfFile: filePath.path, encoding: .utf8) {
+               let arrayBPMData = ecgDataForBPM.components(separatedBy: "\n")
+               var intBPMData = [Int]()
+               for ecgDataString in arrayBPMData {
+                   let ecgDataInt = Int(ecgDataString) ?? 0
+                   intBPMData.append(ecgDataInt)
+               }
+            return intBPMData
+            }
+        }
+        return [Int]()
     }
     
     @IBAction func btnBackTapped(_ sender: Any) {
@@ -291,12 +310,6 @@ extension ViewController: CBPeripheralDelegate {
          */
         func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
             // Deal with errors (if any)
-//            if characteristic.uuid.uuidString == "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"{
-//                guard let value = characteristic.value else {return}
-//                print(Date().timeIntervalSince(previousTimeInterval))
-//                previousTimeInterval = Date()
-//                self.data.append(value)
-//            }
             if let error = error {
                 // Handle error
                 print(error)
@@ -305,29 +318,27 @@ extension ViewController: CBPeripheralDelegate {
             guard let value = characteristic.value else {
                 return
             }
-            if characteristic.uuid.uuidString == "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"{/*
+            if characteristic.uuid.uuidString == "6E400003-B5A3-F393-E0A9-E50E24DCCA9E" {
+                /*
                 rawData.append(value)
                 if ringBuffer == nil{
                     ringBuffer = RingBuffer<Data>(count: rawData.count)
                 }
                 //recordingData.append(value)
-                
                 ringBuffer?.write(element: rawData)
                 let decoder = adpcmDecoder.decodedSample(data: value)
                 helloData.append(decoder)
                 print(decoder.count)
                 for byte in decoder {
-                    print("Byte = ", byte)
-//                    adpcmDecoder.adpcm_decode(code: Int(byte))
-//                    print("Decoding", adpcmDecoder.adpcm_decode(code: Int(byte)))
+                                       print("Byte = ", byte)
+                 //                    adpcmDecoder.adpcm_decode(code: Int(byte))
+                 //                    print("Decoding", adpcmDecoder.adpcm_decode(code: Int(byte)))
                 }
                                                                                          */
             }
             
             //6E40196A-B5A3-F393-E0A9-E50E24DCCA9E
             if characteristic.uuid.uuidString == TransferService.ecgCharacteristicUUID.uuidString {
-//                rawECGData.append(value)
-                // print(rawECGData)
                 for i in stride(from: 0, to: value.count, by: 2) {
                     let b1 = UInt16(value[i])
                     let b2 = UInt16(value[i+1])
@@ -336,6 +347,8 @@ extension ViewController: CBPeripheralDelegate {
                     self.nForIIR = (self.nForIIR + 1) % 10
                     ecgValuesArrayToShare.append("\(combined)")
                     filteredValuesArrayToShare.append("\(filteredIIR)")
+                    filteredValuesDouble.append(filteredIIR)
+//                    bpmCalculations.calculateBPM(dataArray: filteredValuesDouble)
                     ecgGraphView.dataHandler.enqueue(value: Double(filteredIIR))
                 }
             }
@@ -402,11 +415,10 @@ extension ViewController {
         let spec = Spec(oneSecondDataCount: 500, //sample rate
                         visibleSecondRange: 2, // sec data in view at a time
                         refreshGraphInterval: 0.069, // refresh graph (ploat by 0.1 sec
-                        vitalMaxValue: 5000,
-                        vitalMinValue: 1000)
+                        vitalMaxValue: 2400,
+                        vitalMinValue: 1800)
         ecgGraphView.lineColor = .black
         ecgGraphView.valueCircleIndicatorColor = .black
         self.ecgGraphView.setRealTimeSpec(spec: spec)
     }
-    
 }

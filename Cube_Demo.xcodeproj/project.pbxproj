@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		439D15B92AC1AC5600B413C6 /* BPMCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D15B82AC1AC5500B413C6 /* BPMCalculations.swift */; };
+		439D15BB2AC1AC7100B413C6 /* PowerlineFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D15BA2AC1AC7100B413C6 /* PowerlineFilter.swift */; };
 		43AED24F2A2A03EA00177205 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AED24E2A2A03EA00177205 /* AudioPlayer.swift */; };
 		43B0BAAC2A977851002DB5BC /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA42A977851002DB5BC /* Transformer.swift */; };
 		43B0BAAD2A977851002DB5BC /* ViewPortHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA52A977851002DB5BC /* ViewPortHandler.swift */; };
@@ -16,6 +18,7 @@
 		43B0BAB12A977851002DB5BC /* RealTimeDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA92A977851002DB5BC /* RealTimeDataHandler.swift */; };
 		43B0BAB22A977851002DB5BC /* RealTimeVitalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAAA2A977851002DB5BC /* RealTimeVitalChartView.swift */; };
 		43B0BAB32A977851002DB5BC /* VitalChartDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAAB2A977851002DB5BC /* VitalChartDataProvider.swift */; };
+		43FF37982ABB216200A31F09 /* ECGDataForBPM in Resources */ = {isa = PBXBuildFile; fileRef = 43FF37972ABB216200A31F09 /* ECGDataForBPM */; };
 		5D47C4132A13904F00F85614 /* AuscultationProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47C4122A13904F00F85614 /* AuscultationProcessViewController.swift */; };
 		5D47C41B2A13AB4E00F85614 /* TransferServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47C41A2A13AB4E00F85614 /* TransferServices.swift */; };
 		5D6E47952A12515500BEB5A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6E47942A12515500BEB5A5 /* AppDelegate.swift */; };
@@ -61,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		3EB9F6DCD4746BA5C00BDF12 /* Pods-Cube_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cube_Demo.debug.xcconfig"; path = "Target Support Files/Pods-Cube_Demo/Pods-Cube_Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		439D15B82AC1AC5500B413C6 /* BPMCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPMCalculations.swift; sourceTree = "<group>"; };
+		439D15BA2AC1AC7100B413C6 /* PowerlineFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerlineFilter.swift; sourceTree = "<group>"; };
 		43AED24E2A2A03EA00177205 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		43B0BAA42A977851002DB5BC /* Transformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformer.swift; sourceTree = "<group>"; };
 		43B0BAA52A977851002DB5BC /* ViewPortHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPortHandler.swift; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 		43B0BAA92A977851002DB5BC /* RealTimeDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeDataHandler.swift; sourceTree = "<group>"; };
 		43B0BAAA2A977851002DB5BC /* RealTimeVitalChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeVitalChartView.swift; sourceTree = "<group>"; };
 		43B0BAAB2A977851002DB5BC /* VitalChartDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VitalChartDataProvider.swift; sourceTree = "<group>"; };
+		43FF37972ABB216200A31F09 /* ECGDataForBPM */ = {isa = PBXFileReference; lastKnownFileType = text; path = ECGDataForBPM; sourceTree = "<group>"; };
 		5D47C4122A13904F00F85614 /* AuscultationProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuscultationProcessViewController.swift; sourceTree = "<group>"; };
 		5D47C41A2A13AB4E00F85614 /* TransferServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferServices.swift; sourceTree = "<group>"; };
 		5D6E47912A12515500BEB5A5 /* Cube_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cube_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +133,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		439D15B72AC1AC5500B413C6 /* BPM Calculations */ = {
+			isa = PBXGroup;
+			children = (
+				439D15B82AC1AC5500B413C6 /* BPMCalculations.swift */,
+				439D15BA2AC1AC7100B413C6 /* PowerlineFilter.swift */,
+			);
+			path = "BPM Calculations";
+			sourceTree = "<group>";
+		};
 		43B0BAA32A977851002DB5BC /* infoChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,12 +208,14 @@
 				5DE6110D2A2476ED00F2B137 /* RingBuffer.swift */,
 				5DE6110F2A2477D300F2B137 /* ToneGenerator.swift */,
 				5D6E47982A12515500BEB5A5 /* ViewController.swift */,
+				439D15B72AC1AC5500B413C6 /* BPM Calculations */,
 				43B0BAA32A977851002DB5BC /* infoChart */,
 				5D6E479A2A12515500BEB5A5 /* Main.storyboard */,
 				5D6E479D2A12515A00BEB5A5 /* Assets.xcassets */,
 				5D6E479F2A12515A00BEB5A5 /* LaunchScreen.storyboard */,
 				5D6E47A22A12515A00BEB5A5 /* Info.plist */,
 				43AED24E2A2A03EA00177205 /* AudioPlayer.swift */,
+				43FF37972ABB216200A31F09 /* ECGDataForBPM */,
 			);
 			path = Cube_Demo;
 			sourceTree = "<group>";
@@ -321,6 +338,7 @@
 				5D9D43152A2737990056D5F6 /* Pyaar Hota Kayi Baar Hai(PagalWorld.com.se).mp3 in Resources */,
 				5DD1A1E82A25D94800479E90 /* correctRecoedingThreshold in Resources */,
 				5DD1A1EC2A25F10200479E90 /* 0DF4A540-E331-43B8-85C0-76BCC8290275 in Resources */,
+				43FF37982ABB216200A31F09 /* ECGDataForBPM in Resources */,
 				5D9D43172A274D020056D5F6 /* rawDataWithoutDecoding in Resources */,
 				5D6E47A12A12515A00BEB5A5 /* LaunchScreen.storyboard in Resources */,
 				5D6E479E2A12515A00BEB5A5 /* Assets.xcassets in Resources */,
@@ -397,8 +415,10 @@
 				5D9DC03E2A135232001A464E /* OrgLoginViewController.swift in Sources */,
 				43B0BAB12A977851002DB5BC /* RealTimeDataHandler.swift in Sources */,
 				5DE6110E2A2476ED00F2B137 /* RingBuffer.swift in Sources */,
+				439D15BB2AC1AC7100B413C6 /* PowerlineFilter.swift in Sources */,
 				43B0BAB02A977851002DB5BC /* RealTimeVitalRenderer.swift in Sources */,
 				5D6E47972A12515500BEB5A5 /* SceneDelegate.swift in Sources */,
+				439D15B92AC1AC5600B413C6 /* BPMCalculations.swift in Sources */,
 				5DE611102A2477D300F2B137 /* ToneGenerator.swift in Sources */,
 				5D47C4132A13904F00F85614 /* AuscultationProcessViewController.swift in Sources */,
 				43B0BAAC2A977851002DB5BC /* Transformer.swift in Sources */,
@@ -597,8 +617,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -628,8 +648,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

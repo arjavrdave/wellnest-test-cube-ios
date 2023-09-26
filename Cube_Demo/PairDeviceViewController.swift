@@ -48,6 +48,9 @@ class PairDeviceViewController: UIParentViewController, UITableViewDelegate, UIT
     @IBOutlet weak var constBottomMessage: NSLayoutConstraint!
     @IBOutlet weak var btnCancel: UIButton!
     
+    var arrayECGDataForBPMCalculations = [Int]()
+    var bpmCalculations = BPMCalcaulations()
+    
     var isFromSplash = false
    
     var isReRecordFlow = false
@@ -64,7 +67,25 @@ class PairDeviceViewController: UIParentViewController, UITableViewDelegate, UIT
         self.tableView.separatorStyle = .none
         self.centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main, options: [CBCentralManagerOptionShowPowerAlertKey: true])
         
+        arrayECGDataForBPMCalculations = getECGDataFromFile()
         
+        bpmCalculations.calculateBPM(dataArray: self.arrayECGDataForBPMCalculations)
+        
+    }
+    
+    func getECGDataFromFile() -> [Int] {
+        if let filePath = Bundle.main.url(forResource: "ECGDataForBPM", withExtension: nil) {
+            if var ecgDataForBPM = try? String(contentsOfFile: filePath.path, encoding: .utf8) {
+               let arrayBPMData = ecgDataForBPM.components(separatedBy: "\n")
+               var intBPMData = [Int]()
+               for ecgDataString in arrayBPMData {
+                   let ecgDataInt = Int(ecgDataString) ?? 0
+                   intBPMData.append(ecgDataInt)
+               }
+            return intBPMData
+            }
+        }
+        return [Int]()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
