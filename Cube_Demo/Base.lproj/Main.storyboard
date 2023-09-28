@@ -84,15 +84,16 @@
                                         <rect key="frame" x="0.0" y="50" width="358" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="69" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lb-Nk-mmQ">
-                                                <rect key="frame" x="154" y="5.0000000000000036" width="51.333333333333343" height="55.333333333333343"/>
+                                                <rect key="frame" x="154" y="5.0000000000000036" width="100" height="55.333333333333343"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55.329999999999998" id="RKe-bt-91K"/>
+                                                    <constraint firstAttribute="width" constant="100" id="lYG-Xs-kqy"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="46"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="34"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="  bpm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovq-tx-2Ll">
-                                                <rect key="frame" x="205.33333333333334" y="27" width="62.666666666666657" height="27.666666666666671"/>
+                                                <rect key="frame" x="254" y="27" width="84" height="27.666666666666671"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27.670000000000002" id="Rhd-xV-1JP"/>
                                                 </constraints>
@@ -110,7 +111,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Ovq-tx-2Ll" firstAttribute="top" secondItem="zw7-J6-kgy" secondAttribute="top" constant="27" id="27f-ij-GK7"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ovq-tx-2Ll" secondAttribute="trailing" constant="90" id="2Ck-Ft-ee3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ovq-tx-2Ll" secondAttribute="trailing" constant="20" id="2Ck-Ft-ee3"/>
                                             <constraint firstItem="Ovq-tx-2Ll" firstAttribute="leading" secondItem="4lb-Nk-mmQ" secondAttribute="trailing" id="M5e-rc-RrF"/>
                                             <constraint firstItem="4lb-Nk-mmQ" firstAttribute="top" secondItem="zw7-J6-kgy" secondAttribute="top" constant="5" id="P5c-Pd-wMw"/>
                                             <constraint firstItem="4lb-Nk-mmQ" firstAttribute="leading" secondItem="Z1N-43-Orp" secondAttribute="trailing" constant="8" id="Pmh-aH-MLu"/>
@@ -395,6 +396,7 @@
                     <connections>
                         <outlet property="ecgGraphView" destination="V2D-2s-IMq" id="RMc-2m-2KR"/>
                         <outlet property="imgEcgGraph" destination="u23-Ny-TBc" id="Kkz-2D-PI0"/>
+                        <outlet property="lblHeartRate" destination="4lb-Nk-mmQ" id="I5Z-zI-Rk6"/>
                         <outlet property="lblHighFrequency" destination="11T-Bi-cvw" id="bvm-Xe-uUw"/>
                         <outlet property="lblLowFrequency" destination="X91-D6-Ycm" id="pOe-Vg-aoI"/>
                         <outlet property="rangeSlider" destination="9lq-Ci-OaA" id="oNO-ut-kyJ"/>

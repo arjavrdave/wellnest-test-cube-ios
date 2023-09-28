@@ -18,6 +18,7 @@
 		43B0BAB12A977851002DB5BC /* RealTimeDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAA92A977851002DB5BC /* RealTimeDataHandler.swift */; };
 		43B0BAB22A977851002DB5BC /* RealTimeVitalChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAAA2A977851002DB5BC /* RealTimeVitalChartView.swift */; };
 		43B0BAB32A977851002DB5BC /* VitalChartDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BAAB2A977851002DB5BC /* VitalChartDataProvider.swift */; };
+		43CDD7812AC2D824008A2A41 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CDD7802AC2D824008A2A41 /* Extensions.swift */; };
 		43FF37982ABB216200A31F09 /* ECGDataForBPM in Resources */ = {isa = PBXBuildFile; fileRef = 43FF37972ABB216200A31F09 /* ECGDataForBPM */; };
 		5D47C4132A13904F00F85614 /* AuscultationProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47C4122A13904F00F85614 /* AuscultationProcessViewController.swift */; };
 		5D47C41B2A13AB4E00F85614 /* TransferServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D47C41A2A13AB4E00F85614 /* TransferServices.swift */; };
@@ -75,6 +76,7 @@
 		43B0BAA92A977851002DB5BC /* RealTimeDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeDataHandler.swift; sourceTree = "<group>"; };
 		43B0BAAA2A977851002DB5BC /* RealTimeVitalChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeVitalChartView.swift; sourceTree = "<group>"; };
 		43B0BAAB2A977851002DB5BC /* VitalChartDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VitalChartDataProvider.swift; sourceTree = "<group>"; };
+		43CDD7802AC2D824008A2A41 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		43FF37972ABB216200A31F09 /* ECGDataForBPM */ = {isa = PBXFileReference; lastKnownFileType = text; path = ECGDataForBPM; sourceTree = "<group>"; };
 		5D47C4122A13904F00F85614 /* AuscultationProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuscultationProcessViewController.swift; sourceTree = "<group>"; };
 		5D47C41A2A13AB4E00F85614 /* TransferServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferServices.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				5D6E47A22A12515A00BEB5A5 /* Info.plist */,
 				43AED24E2A2A03EA00177205 /* AudioPlayer.swift */,
 				43FF37972ABB216200A31F09 /* ECGDataForBPM */,
+				43CDD7802AC2D824008A2A41 /* Extensions.swift */,
 			);
 			path = Cube_Demo;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D6E47992A12515500BEB5A5 /* ViewController.swift in Sources */,
+				43CDD7812AC2D824008A2A41 /* Extensions.swift in Sources */,
 				5D6E47952A12515500BEB5A5 /* AppDelegate.swift in Sources */,
 				5D9DC03E2A135232001A464E /* OrgLoginViewController.swift in Sources */,
 				43B0BAB12A977851002DB5BC /* RealTimeDataHandler.swift in Sources */,

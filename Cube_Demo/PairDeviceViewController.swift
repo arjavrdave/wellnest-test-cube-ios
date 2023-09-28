@@ -67,9 +67,9 @@ class PairDeviceViewController: UIParentViewController, UITableViewDelegate, UIT
         self.tableView.separatorStyle = .none
         self.centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main, options: [CBCentralManagerOptionShowPowerAlertKey: true])
         
-        arrayECGDataForBPMCalculations = getECGDataFromFile()
-        
-        bpmCalculations.calculateBPM(dataArray: self.arrayECGDataForBPMCalculations)
+//        arrayECGDataForBPMCalculations = getECGDataFromFile()
+//        
+//        bpmCalculations.calculateBPM(dataArray: self.arrayECGDataForBPMCalculations)
         
     }
     

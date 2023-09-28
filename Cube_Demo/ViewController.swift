@@ -19,6 +19,8 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     @IBOutlet weak var graphView: UIImageView!
     @IBOutlet weak var waveFormView: UIView!
     @IBOutlet weak var rangeSlider: RangeSeekSlider!
+    @IBOutlet weak var lblHeartRate: UILabel!
+
     var adpcmDecoder = ADPCMDecode()
     var toneGenerator = ToneGenerator()
     var circularQueue : Queue<Any>?
@@ -46,13 +48,16 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     var ecgValuesArrayToShare = [String]()
     var filteredValuesArrayToShare = [String]()
     var filteredValuesDouble = [Double]()
+    
+    //BPM Variables
+    var arrayBPMDictionary = [[String: String]]()
     var bpmCalculations = BPMCalcaulations()
-
-    var arrayECGDataForBPMCalculations = [Int]()
+    var timerToCalcauteBPM: Timer?
+    var dateToCheck = Date()
+    var countDownTime = 0
+    var dataArrayForECG = Data()
     
     @IBOutlet var ecgGraphView: RealTimeVitalChartView!
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +74,6 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         
         self.rawData = try! Data(contentsOf: Bundle.main.url(forResource: "Pyaar Hota Kayi Baar Hai(PagalWorld.com.se)", withExtension: "mp3")!)
         
-        self.arrayECGDataForBPMCalculations = getECGDataFromFile()
-        bpmCalculations.calculateBPM(dataArray: self.arrayECGDataForBPMCalculations)
 
         toneGenerator.setupAudioUnit()
         toneGenerator.start()
@@ -88,23 +91,10 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
             self.ecgGraphView.updateChartSize()
         }
     }
-    
-    func getECGDataFromFile() -> [Int] {
-        if let filePath = Bundle.main.url(forResource: "ECGDataForBPM", withExtension: nil) {
-            if var ecgDataForBPM = try? String(contentsOfFile: filePath.path, encoding: .utf8) {
-               let arrayBPMData = ecgDataForBPM.components(separatedBy: "\n")
-               var intBPMData = [Int]()
-               for ecgDataString in arrayBPMData {
-                   let ecgDataInt = Int(ecgDataString) ?? 0
-                   intBPMData.append(ecgDataInt)
-               }
-            return intBPMData
-            }
-        }
-        return [Int]()
-    }
-    
+
     @IBAction func btnBackTapped(_ sender: Any) {
+        timerToCalcauteBPM?.invalidate()
+        timerToCalcauteBPM = nil
         self.navigationController?.popViewController(animated: true)
     }
     // Range Slider Delegate method
@@ -122,6 +112,7 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         lblLowFrequency.text = "  20 Hz"
         lblHighFrequency.text = "200 Hz  "
     }
+    
     @IBAction func filterLungsTapped(_ sender: Any) {
         rangeSlider.selectedMinValue = 100
         rangeSlider.selectedMaxValue = 2000
@@ -130,6 +121,7 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         lblLowFrequency.text = "  100 Hz"
         lblHighFrequency.text = "2000 Hz  "
     }
+    
     @IBAction func filterBowelTapped(_ sender: Any) {
         rangeSlider.selectedMinValue = 5
         rangeSlider.selectedMaxValue = 30
@@ -138,6 +130,7 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         lblLowFrequency.text = "  5 Hz"
         lblHighFrequency.text = "30 Hz  "
     }
+    
     @IBAction func btnNoFilterTapped(_ sender: Any) {
         rangeSlider.selectedMinValue = 0
         rangeSlider.selectedMaxValue = 2000
@@ -237,8 +230,6 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
                 bezierPath.addLine(to: CGPoint(x: Double((beat - dataByteBuffer.readIndex)) * xOffset, y: yOffset + Double(dataByteBuffer.getQueueData[beat % dataByteBuffer.getQueueData.count]!) * multiplyingFactor))
                 bezierPath.addLine(to: CGPoint(x: Double((beat - dataByteBuffer.readIndex)) * xOffset, y: yOffset))
             }
-            
-
         }
         n += 1
         phonogramShapeLayer.path = bezierPath.cgPath
@@ -247,7 +238,6 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
         phonogramShapeLayer.fillColor = UIColor.clear.cgColor
         waveFormView.layer.addSublayer(phonogramShapeLayer)
     }
-    
 }
 extension ViewController: CBPeripheralDelegate {
         // implementations of the CBPeripheralDelegate methods
@@ -309,9 +299,7 @@ extension ViewController: CBPeripheralDelegate {
          *   This callback lets us know more data has arrived via notification on the characteristic
          */
         func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-            // Deal with errors (if any)
             if let error = error {
-                // Handle error
                 print(error)
                 return
             }
@@ -339,6 +327,13 @@ extension ViewController: CBPeripheralDelegate {
             
             //6E40196A-B5A3-F393-E0A9-E50E24DCCA9E
             if characteristic.uuid.uuidString == TransferService.ecgCharacteristicUUID.uuidString {
+//                print(value.count)
+                dataArrayForECG.append(value)
+                if timerToCalcauteBPM == nil {
+                    timerToCalcauteBPM = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(calcuateBPMTimerFired), userInfo: nil, repeats: true)
+                }
+                
+                //1.
                 for i in stride(from: 0, to: value.count, by: 2) {
                     let b1 = UInt16(value[i])
                     let b2 = UInt16(value[i+1])
@@ -348,11 +343,40 @@ extension ViewController: CBPeripheralDelegate {
                     ecgValuesArrayToShare.append("\(combined)")
                     filteredValuesArrayToShare.append("\(filteredIIR)")
                     filteredValuesDouble.append(filteredIIR)
-//                    bpmCalculations.calculateBPM(dataArray: filteredValuesDouble)
+//                    print("filteredIIR \(filteredIIR)")
+                    
+                    // Append dictionary
+                    var dictionary = [String: String]()
+                    dictionary["ecgData"] = "\(Int(filteredIIR))"
+                    dictionary["date"] = Date().getStringFromDate()
+                    arrayBPMDictionary.append(dictionary)
+                    
                     ecgGraphView.dataHandler.enqueue(value: Double(filteredIIR))
                 }
-            }
+                
+//                  print("arrayBPMDictionary.count \(arrayBPMDictionary.count)")
+//                if abs(dateToCheck.timeIntervalSinceNow) >= 1 {
+//                    dateToCheck = Date()
+//                    dataArrayForECG = Data()
+//                }
+            } //characteristics ends here
         }
+    
+    @objc func calcuateBPMTimerFired() {
+        //Sample rate - 500
+        //In 1 second 500 readings will come
+//        countDownTime = countDownTime + 1
+    
+        let howManySecondsToFindBPM = 60.0
+        let dataToCalcuateBPM = arrayBPMDictionary.map {
+            Int($0["ecgData"] ?? "0") ?? 0
+        }
+        let last60SecondsData = Array(dataToCalcuateBPM[max(dataToCalcuateBPM.count-(500*10),0)..<dataToCalcuateBPM.count]).map {
+            Double($0)
+        }
+        
+        lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: last60SecondsData, samplingRate: 500, howManySecondsToFindBPM: howManySecondsToFindBPM))"
+    }
 }
 
 
@@ -421,4 +445,6 @@ extension ViewController {
         ecgGraphView.valueCircleIndicatorColor = .black
         self.ecgGraphView.setRealTimeSpec(spec: spec)
     }
+    
+    
 }
