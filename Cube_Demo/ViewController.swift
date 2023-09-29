@@ -48,6 +48,9 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     var ecgValuesArrayToShare = [String]()
     var filteredValuesArrayToShare = [String]()
     var filteredValuesDouble = [Double]()
+    let secondsToFindBPM = 1.0
+    let sampleRateForECG = 500.0
+
     
     //BPM Variables
     var arrayBPMDictionary = [[String: String]]()
@@ -329,9 +332,9 @@ extension ViewController: CBPeripheralDelegate {
             if characteristic.uuid.uuidString == TransferService.ecgCharacteristicUUID.uuidString {
 //                print(value.count)
                 dataArrayForECG.append(value)
-                if timerToCalcauteBPM == nil {
-                    timerToCalcauteBPM = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(calcuateBPMTimerFired), userInfo: nil, repeats: true)
-                }
+//                if timerToCalcauteBPM == nil {
+//                    timerToCalcauteBPM = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(calcuateBPMTimerFired), userInfo: nil, repeats: true)
+//                }
                 
                 //1.
                 for i in stride(from: 0, to: value.count, by: 2) {
@@ -347,7 +350,7 @@ extension ViewController: CBPeripheralDelegate {
                     
                     // Append dictionary
                     var dictionary = [String: String]()
-                    dictionary["ecgData"] = "\(Int(filteredIIR))"
+                    dictionary["ecgData"] = "\(filteredIIR)"
                     dictionary["date"] = Date().getStringFromDate()
                     arrayBPMDictionary.append(dictionary)
                     
@@ -355,10 +358,11 @@ extension ViewController: CBPeripheralDelegate {
                 }
                 
 //                  print("arrayBPMDictionary.count \(arrayBPMDictionary.count)")
-//                if abs(dateToCheck.timeIntervalSinceNow) >= 1 {
-//                    dateToCheck = Date()
-//                    dataArrayForECG = Data()
-//                }
+                if abs(dateToCheck.timeIntervalSinceNow) >= 1 {
+                    calcuateBPMTimerFired()
+                    dateToCheck = Date()
+                    dataArrayForECG = Data()
+                }
             } //characteristics ends here
         }
     
@@ -367,15 +371,13 @@ extension ViewController: CBPeripheralDelegate {
         //In 1 second 500 readings will come
 //        countDownTime = countDownTime + 1
     
-        let howManySecondsToFindBPM = 60.0
         let dataToCalcuateBPM = arrayBPMDictionary.map {
-            Int($0["ecgData"] ?? "0") ?? 0
+            Double($0["ecgData"] ?? "0.0") ?? 0.0
         }
-        let last60SecondsData = Array(dataToCalcuateBPM[max(dataToCalcuateBPM.count-(500*10),0)..<dataToCalcuateBPM.count]).map {
-            Double($0)
-        }
-        
-        lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: last60SecondsData, samplingRate: 500, howManySecondsToFindBPM: howManySecondsToFindBPM))"
+        let allData = dataToCalcuateBPM //Array(dataToCalcuateBPM[max(dataToCalcuateBPM.count-(500*Int(secondsToFindBPM)),0)..<dataToCalcuateBPM.count]).map {
+////            $0 }
+//
+        lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: allData, samplingRate: sampleRateForECG))"
     }
 }
 
