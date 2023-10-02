@@ -20,13 +20,11 @@ class BPMCalcaulations: NSObject {
         let filteredDataArray = dataArray.filter {
             $0 < 5000.0 && $0 > 1000.0
         }
-//        print("filteredDataArray \(filteredDataArray[0..<min(0,4)])")
         
         //2. Apply powerline filter
         let powerlineSignal = signalFilterPowerline(signal: filteredDataArray, samplingRate: sampleRate)
-//        print("powerlineSignal \(powerlineSignal[0..<4])")
 
-        //3. Square of differences
+        //3. Find square of differences
         var squareOfDifferences = [Double]()
         var d1 = [Double]()
         for i in 0..<powerlineSignal.count {
@@ -43,26 +41,18 @@ class BPMCalcaulations: NSObject {
             }
         }
 
-
-        // -----------------------------
-        /*
-             2. The difference array is sorted in descending order of magnitude and the difference peaks above a constant
-             threshold value of 3% of the maximum are selected.
-         */
-        //3. Finding the threshold
+        //4. Finding the threshold
+        //TODO: Need to adjust
         let thresholdArray = squareOfDifferences.filter {
-            $0 < 250.0
+            $0 < 150.0
         }
-
-        print("Square of differences \(squareOfDifferences)")
-        print("Threshold Array \(thresholdArray.count)")
-        
+        print("squareOfDifferences \(squareOfDifferences)")
         let maxAngleVal = thresholdArray.max() ?? 0.0
         let errorThreshold = 0.25 * maxAngleVal
         print("errorThreshold \(errorThreshold)")
         
-        /*
-         3. Since the maximum duration of the QRS regions is 150 ms, to eliminate possibility of detection of several
+        /* 5.
+          Since the maximum duration of the QRS regions is 150 ms, to eliminate possibility of detection of several
          peaks in the same QRS region all the difference peaks within an interval of ±75 ms of each selected
          difference peaks are eliminated.
         */
@@ -90,15 +80,13 @@ class BPMCalcaulations: NSObject {
                 }
             }
         }
-                
         let rPeakIndicies = newRPeaks.map {
             Double($0)
         }
-        print("rPeaks count \(rPeakIndicies.count)")
-        
+//        print("Todal R Peaks count \(rPeakIndicies.count)")
+        //6. Find the differences between the R Peaks
         let differences = zip(rPeakIndicies.dropFirst(), rPeakIndicies).map { $0 - $1 }
-        print("Differences \(differences.count)")
-        
+
         return  processRRIntervals(differences)
     }
     
@@ -128,6 +116,7 @@ class BPMCalcaulations: NSObject {
                     // Case 2: Search for another R peak in the interval
                     // Implement your logic for searching another R peak with a decreased threshold
                     // For now, we'll just skip this RR interval
+//                    print("Search for another R peak in the interval")
                     continue
                 } else {
                     processedRRIntervals.append(rrIntervals[i])
@@ -143,13 +132,10 @@ extension BPMCalcaulations {
     func calculateHeartRate(z: [Double],
                             samplingRate: Double) -> Int {
         let differences = calculateBPM(dataArray: z, sampleRate: samplingRate)
-//        let r = rpeaks
         print("Processed differences \(differences.count)")
-//        let differences = zip(r.dropFirst(), r).map { $0 - $1 }
         let avg = differences.reduce(0.0, +) / Double(differences.count)
 //        print("avg \(avg), differences \(differences)")
         let bpm = samplingRate * 60 / avg
-
         if bpm.isNaN || bpm.isInfinite {
             return 0
         }

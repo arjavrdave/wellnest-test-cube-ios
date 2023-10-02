@@ -48,17 +48,13 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     var ecgValuesArrayToShare = [String]()
     var filteredValuesArrayToShare = [String]()
     var filteredValuesDouble = [Double]()
-    let secondsToFindBPM = 1.0
     let sampleRateForECG = 500.0
 
     
     //BPM Variables
     var arrayBPMDictionary = [[String: String]]()
     var bpmCalculations = BPMCalcaulations()
-    var timerToCalcauteBPM: Timer?
     var dateToCheck = Date()
-    var countDownTime = 0
-    var dataArrayForECG = Data()
     
     @IBOutlet var ecgGraphView: RealTimeVitalChartView!
     
@@ -96,8 +92,6 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     }
 
     @IBAction func btnBackTapped(_ sender: Any) {
-        timerToCalcauteBPM?.invalidate()
-        timerToCalcauteBPM = nil
         self.navigationController?.popViewController(animated: true)
     }
     // Range Slider Delegate method
@@ -327,16 +321,8 @@ extension ViewController: CBPeripheralDelegate {
                 }
                                                                                          */
             }
-            
-            //6E40196A-B5A3-F393-E0A9-E50E24DCCA9E
             if characteristic.uuid.uuidString == TransferService.ecgCharacteristicUUID.uuidString {
-//                print(value.count)
-                dataArrayForECG.append(value)
-//                if timerToCalcauteBPM == nil {
-//                    timerToCalcauteBPM = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(calcuateBPMTimerFired), userInfo: nil, repeats: true)
-//                }
-                
-                //1.
+//              print(value.count)
                 for i in stride(from: 0, to: value.count, by: 2) {
                     let b1 = UInt16(value[i])
                     let b2 = UInt16(value[i+1])
@@ -346,39 +332,23 @@ extension ViewController: CBPeripheralDelegate {
                     ecgValuesArrayToShare.append("\(combined)")
                     filteredValuesArrayToShare.append("\(filteredIIR)")
                     filteredValuesDouble.append(filteredIIR)
-//                    print("filteredIIR \(filteredIIR)")
                     
                     // Append dictionary
                     var dictionary = [String: String]()
                     dictionary["ecgData"] = "\(filteredIIR)"
                     dictionary["date"] = Date().getStringFromDate()
                     arrayBPMDictionary.append(dictionary)
-                    
+
+                    // Plot the points in graph
                     ecgGraphView.dataHandler.enqueue(value: Double(filteredIIR))
                 }
                 
-//                  print("arrayBPMDictionary.count \(arrayBPMDictionary.count)")
                 if abs(dateToCheck.timeIntervalSinceNow) >= 1 {
-                    calcuateBPMTimerFired()
+                    calculatingBPM()
                     dateToCheck = Date()
-                    dataArrayForECG = Data()
                 }
-            } //characteristics ends here
-        }
-    
-    @objc func calcuateBPMTimerFired() {
-        //Sample rate - 500
-        //In 1 second 500 readings will come
-//        countDownTime = countDownTime + 1
-    
-        let dataToCalcuateBPM = arrayBPMDictionary.map {
-            Double($0["ecgData"] ?? "0.0") ?? 0.0
-        }
-        let allData = dataToCalcuateBPM //Array(dataToCalcuateBPM[max(dataToCalcuateBPM.count-(500*Int(secondsToFindBPM)),0)..<dataToCalcuateBPM.count]).map {
-////            $0 }
-//
-        lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: allData, samplingRate: sampleRateForECG))"
-    }
+            } // ECG characteristics ends here
+        } // Delegate function ends here
 }
 
 
@@ -434,7 +404,7 @@ extension ViewController {
     }
 }
 
-// Vital Line Graph
+ //MARK: - ECG
 extension ViewController {
     
     func initECGChart() {
@@ -447,6 +417,17 @@ extension ViewController {
         ecgGraphView.valueCircleIndicatorColor = .black
         self.ecgGraphView.setRealTimeSpec(spec: spec)
     }
+    
+    @objc func calculatingBPM() {
+        //Sample rate - 500
+        //In 1 second 500 points will come
+        let dataToCalcuateBPM = arrayBPMDictionary.map {
+            Double($0["ecgData"] ?? "0.0") ?? 0.0
+        }
+        let allData = dataToCalcuateBPM
+        lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: allData, samplingRate: sampleRateForECG))"
+    }
+
     
     
 }
