@@ -43,7 +43,8 @@ class BPMCalcaulations: NSObject {
 
         //4. Finding the threshold
         //TODO: Need to adjust
-        let thresholdArray = squareOfDifferences.filter {
+        let thresholdArray = squareOfDifferences
+            .filter {
             $0 < 850.0
         }
         

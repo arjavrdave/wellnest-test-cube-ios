@@ -424,8 +424,17 @@ extension ViewController {
         let dataToCalcuateBPM = arrayBPMDictionary.map {
             Double($0["ecgData"] ?? "0.0") ?? 0.0
         }
-        let allData = dataToCalcuateBPM
-        lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: allData, samplingRate: sampleRateForECG))"
+        
+        // Taking last 10 seconds data only
+        let startIdx = max(0,dataToCalcuateBPM.count-(500*10))
+        let endIdx = dataToCalcuateBPM.count
+        let slice = Array(dataToCalcuateBPM[startIdx..<endIdx])
+        print("startIdx \(startIdx)")
+        print("endIdx \(endIdx)")
+//        windowArray[qrsArray.count - 1] = slice
+        
+//        let allData = dataToCalcuateBPM
+        lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: slice, samplingRate: sampleRateForECG))"
     }
 
     
