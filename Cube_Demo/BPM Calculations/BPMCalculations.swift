@@ -44,9 +44,10 @@ class BPMCalcaulations: NSObject {
         //4. Finding the threshold
         //TODO: Need to adjust
         let thresholdArray = squareOfDifferences.filter {
-            $0 < 150.0
+            $0 < 850.0
         }
-        print("squareOfDifferences \(squareOfDifferences)")
+        
+////        print("squareOfDifferences \(squareOfDifferences)")
         let maxAngleVal = thresholdArray.max() ?? 0.0
         let errorThreshold = 0.25 * maxAngleVal
         print("errorThreshold \(errorThreshold)")
@@ -83,15 +84,17 @@ class BPMCalcaulations: NSObject {
         let rPeakIndicies = newRPeaks.map {
             Double($0)
         }
+        print("rPeakIndicies \(rPeakIndicies.count)")
 //        print("Todal R Peaks count \(rPeakIndicies.count)")
-        //6. Find the differences between the R Peaks
-        let differences = zip(rPeakIndicies.dropFirst(), rPeakIndicies).map { $0 - $1 }
 
-        return  processRRIntervals(differences)
+        return rPeakIndicies
+        //processRRIntervals(differences)
+        //processRRIntervals(differences)
     }
     
     //MARK: - R R Interval Processing
     
+    /*
     func calculateAverageRRInterval(_ rrIntervals: [Double]) -> Double {
         return rrIntervals.reduce(0, +) / Double(rrIntervals.count)
     }
@@ -99,7 +102,7 @@ class BPMCalcaulations: NSObject {
     func processRRIntervals(_ rrIntervals: [Double]) -> [Double] {
         // Calculate the average RR interval
         let averageRRInterval = calculateAverageRRInterval(rrIntervals)
-        
+
         // Process RR intervals based on the provided cases
         var processedRRIntervals: [Double] = []
         for i in 0..<rrIntervals.count {
@@ -111,28 +114,34 @@ class BPMCalcaulations: NSObject {
                 if rrIntervals[i] < 0.7 * averageRRInterval {
                     // Case 1: Eliminate the 2nd peak
                     // Skip the 2nd peak
+                    print("eliminating duplicate rr intervals")
                     continue
-                } else if rrIntervals[i] > 1.8 * averageRRInterval {
-                    // Case 2: Search for another R peak in the interval
-                    // Implement your logic for searching another R peak with a decreased threshold
-                    // For now, we'll just skip this RR interval
-//                    print("Search for another R peak in the interval")
-                    continue
-                } else {
+                }
+//                else if rrIntervals[i] > 1.8 * averageRRInterval {
+//                    // Case 2: Search for another R peak in the interval
+//                    // Implement your logic for searching another R peak with a decreased threshold
+//                    // For now, we'll just skip this RR interval
+////                    print("Search for another R peak in the interval")
+//                    continue
+//                }
+                else {
                     processedRRIntervals.append(rrIntervals[i])
                 }
             }
         }
         return processedRRIntervals
     }
+     */
 }
 
 //MARK: - Average BPM Calculations
 extension BPMCalcaulations {
     func calculateHeartRate(z: [Double],
                             samplingRate: Double) -> Int {
-        let differences = calculateBPM(dataArray: z, sampleRate: samplingRate)
-        print("Processed differences \(differences.count)")
+        let rPeakIndicies = calculateBPM(dataArray: z, sampleRate: samplingRate)
+        
+        let differences = zip(rPeakIndicies.dropFirst(), rPeakIndicies).map { $0 - $1 }
+
         let avg = differences.reduce(0.0, +) / Double(differences.count)
 //        print("avg \(avg), differences \(differences)")
         let bpm = samplingRate * 60 / avg
