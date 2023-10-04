@@ -349,6 +349,7 @@ extension ViewController: CBPeripheralDelegate {
                 }
             } // ECG characteristics ends here
         } // Delegate function ends here
+    
 }
 
 
@@ -425,16 +426,23 @@ extension ViewController {
             Double($0["ecgData"] ?? "0.0") ?? 0.0
         }
         
-        // Taking last 10 seconds data only
+        // Last 10 seconds data
         let startIdx = max(0,dataToCalcuateBPM.count-(500*10))
         let endIdx = dataToCalcuateBPM.count
         let slice = Array(dataToCalcuateBPM[startIdx..<endIdx])
-        print("startIdx \(startIdx)")
-        print("endIdx \(endIdx)")
-//        windowArray[qrsArray.count - 1] = slice
         
-//        let allData = dataToCalcuateBPM
-        lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: slice, samplingRate: sampleRateForECG))"
+        // Last 3 seconds data
+        let startIdxForThreeSecondsData = max(0,dataToCalcuateBPM.count-(500*3))
+        let endIdxForThreeSecondsData = dataToCalcuateBPM.count
+        let sliceForThreeSecondsData = Array(dataToCalcuateBPM[startIdxForThreeSecondsData..<endIdxForThreeSecondsData])
+        
+        let bpmValueOfLast3Seconds =  bpmCalculations.calculateHeartRate(z: sliceForThreeSecondsData, samplingRate: sampleRateForECG)
+        if bpmValueOfLast3Seconds == 0 {
+            lblHeartRate.text = "\(bpmValueOfLast3Seconds)"
+        } else {
+            lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: slice, samplingRate: sampleRateForECG))"
+        }
+        
     }
 
     

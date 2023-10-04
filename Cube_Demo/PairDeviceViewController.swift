@@ -261,6 +261,7 @@ extension PairDeviceViewController: CBCentralManagerDelegate {
             let alertController = UIAlertController(title: "Disconnected", message: "Device Disconnected", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "ok", style: .default){_ in
                // self.navigationController?.popToRootViewController(animated: true)
+                self.navigationController?.popViewController(animated: true)
             })
             self.present(alertController, animated: false)
             print("Perhiperal Disconnected")

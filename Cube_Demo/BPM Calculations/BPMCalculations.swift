@@ -13,6 +13,8 @@ class BPMCalcaulations: NSObject {
     override init() {
     }
     
+    let MinimumThresholdValue = 50.0
+    
     //MARK: - R Peak Detection
     func calculateBPM(dataArray: [Double], sampleRate: Double) -> ([Double]){
         
@@ -52,6 +54,11 @@ class BPMCalcaulations: NSObject {
         let maxAngleVal = thresholdArray.max() ?? 0.0
         let errorThreshold = 0.25 * maxAngleVal
         print("errorThreshold \(errorThreshold)")
+        //Note: If error threshld below minimum limit then
+        //We are passing rPeaks count 0
+        if errorThreshold <= MinimumThresholdValue {
+            return [Double]()
+        }
         
         /* 5.
           Since the maximum duration of the QRS regions is 150 ms, to eliminate possibility of detection of several
