@@ -92,6 +92,7 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     }
 
     @IBAction func btnBackTapped(_ sender: Any) {
+        self.ecgGraphView.dataHandler.stop()
         self.navigationController?.popViewController(animated: true)
     }
     // Range Slider Delegate method
@@ -340,7 +341,7 @@ extension ViewController: CBPeripheralDelegate {
                     arrayBPMDictionary.append(dictionary)
 
                     // Plot the points in graph
-                    ecgGraphView.dataHandler.enqueue(value: Double(filteredIIR))
+                        self.ecgGraphView.dataHandler.enqueue(value: Double(filteredIIR))
                 }
                 
                 if abs(dateToCheck.timeIntervalSinceNow) >= 1 {
@@ -411,7 +412,7 @@ extension ViewController {
     func initECGChart() {
         let spec = Spec(oneSecondDataCount: 500, //sample rate
                         visibleSecondRange: 2, // sec data in view at a time
-                        refreshGraphInterval: 0.069, // refresh graph (ploat by 0.1 sec
+                        refreshGraphInterval: 0.069,// refresh graph (ploat by 0.1 sec
                         vitalMaxValue: 2400,
                         vitalMinValue: 1800)
         ecgGraphView.lineColor = .black

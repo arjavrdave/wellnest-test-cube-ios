@@ -73,7 +73,10 @@ open class RealTimeDataHandler {
      - enqueue후에 dequeue가 되도록 sync로 동작
      */
     public func enqueue(value: Double) {
-        DispatchQueue(label: "iOSInfoChart.app.enqueue").sync {
+        //Note: Commented because it seems like
+        // graph drawing lagging in sync operation
+        //DispatchQueue(label: "iOSInfoChart.app.enqueue").sync
+        DispatchQueue.main.async {
             self.run()
             self.mainQueue.enqueue(value)
         }
@@ -86,8 +89,10 @@ open class RealTimeDataHandler {
      - enqueue후에 dequeue가 되도록 sync로 동작
      */
     public func dequeue() {
-        DispatchQueue(label: "iOSInfoChart.app.dequeue").sync {
-            self.lastValue = dequeueValue
+        //Note: Commented because it seems like lagging in sync operation
+        // graph drawing lagging in sync operation
+        DispatchQueue.main.async {
+            self.lastValue = self.dequeueValue
             //self.dequeueValue = self.mainQueue.dequeue() ?? self.defaultValue
             self.dequeueValue = self.mainQueue.dequeue() ?? self.lastValue
             self.dataProvider!.dequeueRealTimeData(value: self.dequeueValue)
