@@ -58,6 +58,10 @@ class ViewController: UIViewController,RangeSeekSliderDelegate {
     
     @IBOutlet var ecgGraphView: RealTimeVitalChartView!
     
+    var isFirstByteForBatteryPercentage = true
+    var batteryPercentageInt: UInt8?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -324,6 +328,12 @@ extension ViewController: CBPeripheralDelegate {
             }
             if characteristic.uuid.uuidString == TransferService.ecgCharacteristicUUID.uuidString {
 //              print(value.count)
+                if self.isFirstByteForBatteryPercentage && value.count == 1 {
+                    self.batteryPercentageInt = UInt8(value[0])
+                    self.showAlert(title: "Battery Percentage", message: "Stetho has \(batteryPercentageInt ?? 0) % of battery.")
+                    self.isFirstByteForBatteryPercentage = false
+                    return
+                }
                 for i in stride(from: 0, to: value.count, by: 2) {
                     let b1 = UInt16(value[i])
                     let b2 = UInt16(value[i+1])
@@ -443,9 +453,18 @@ extension ViewController {
         } else {
             lblHeartRate.text = "\(bpmCalculations.calculateHeartRate(z: slice, samplingRate: sampleRateForECG))"
         }
-        
     }
+}
 
+extension ViewController {
     
-    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {_ in
+            //  self.afterConnectionView.isHidden = false
+                        
+        }))
+        self.present(alertController, animated: false)
+
+    }
 }
